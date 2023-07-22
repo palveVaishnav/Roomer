@@ -1,0 +1,141 @@
+:root{
+    /* Colors  for background*/
+    --first-color: #a73606;
+    --second-color: #987554;
+    --third-color: #b99976;
+    --fourth-color: #d2b48c;
+    --fifth-color: #e5d3b3;
+
+    /* Text Colors */
+    --text-color-one: #ffffff;
+    --text-color-two: #ffffff;
+    --text-color-three: #664229;
+    --text-color-four: #664229;
+    --text-color-five: #664229;
+
+    /* Font Size */
+    --biggest-font: 2rem;
+    --bigger-font:1.25rem;
+    --h1-font:1.5rem;
+    --h2-font: 1rem;
+    --normal-font:.875rem;
+    --small-font:.75rem;
+
+    /* Font Style */
+    --title-font:'Trebuchet MS', Courier, monospace; 
+    --subtitle-font: 'Lucida Sans Unicode', Courier, sans-serif;
+
+
+}
+*{
+    font-family: var(--subtitle-font);
+}
+
+body{
+    display:flex;
+    height:auto;
+    /* background-image: linear-gradient(to right ,#72280d,#c9450c); */
+    background-color: #000;
+
+}
+
+p{
+    font-size:.8rem ;
+    /* font-weight: 10px ; */
+}
+
+/* REusable CSS  */
+.section{
+    display: flex;
+    width: 100%;
+}
+ul,ol,li{
+    list-style:none;
+}
+
+
+
+
+
+/* Home Page */
+
+.side__bar{
+    background-color: #f49633;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    width: 20%;
+    height: auto;
+    backdrop-filter: blur(29px);
+}
+.side__bar p{
+     font-size: var(--biggest-font);
+}
+.side__bar__buttons{
+    display: flex;
+    padding: .5rem;
+    justify-content: center;
+    align-items:center ;
+    /* border: 1px solid rgba(0,0,0,.1) ; */
+}
+
+.side__bar__buttons button{
+    margin:.5rem .5rem;
+    background-color:#fff;
+    cursor: pointer;
+    border: 1px black solid;
+    border-radius: 5px;
+
+}
+
+.hero__section{
+    background-color: #f6b168;
+    padding:  2rem 3rem 4rem 6rem ;
+}
+
+.properties{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+
+.property__card{
+    padding: .5rem;
+    height: max-content;
+    width: 200px;
+    border: 1px black solid;
+    border-radius: 10px;
+    transition:transform .4s ;
+}
+.property__card:hover{
+    transform: translateY(-2px);
+    transform: scaleY(0 1.03);
+    box-shadow: 2px 2px 4px orangered;
+}
+
+.property__image{
+    /* filter: drop-shadow( 5px 5px 10px) ; */
+    border-radius: 5px;
+    width: 200px;
+    transition: transform .3s;
+}
+
+/* .property__image:hover{
+    filter: drop-shadow( 3px 3px 10px brown);
+    transform:scale(1.2)
+} */
+
+.property__buttons{
+    text-align: center;
+}
+
+.property__buttons button{
+    border-radius: 4px;
+    border: 1px black solid ;
+    transition: transform .2s;
+}
+
+.property__buttons button:hover{
+    transform: translateY(-3px);
+}
