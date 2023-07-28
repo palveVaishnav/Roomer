@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Using GRIDs</title>
+  <style>
+    li {
+      list-style: none;
+    }
+
+    .body,
+    .grid{
+      display: grid;
+    }
+
+    .header {
+      grid-template-columns: 200px 1fr;
+    }
+
+    .navigation {
+      /* grid-template-columns: repeat(auto-fit, 100px); */
+      display: flex;      
+      flex-direction: row-reverse;
+      gap: 2em;
+      margin-right: 4em;    
+    }
+
+    .logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      /* background-color: red; */
+    }
+
+    .main{      
+      grid-template-columns: 1fr 4fr;
+    }
+    .sidebar{}
+    .main__section{}
+    
+    .property{
+      /* display: flex; */
+      grid-template-columns: repeat(4, minmax(200px, 1fr));
+      grid-auto-rows: minmax(20em,auto);
+      gap: 1.5em;
+    }
+    .property_card{
+      width: auto;
+      padding: 1em;
+      border: 2px solid black;
+      border-radius: 10px;
+    }
+    .footer{
+      margin: 2rem;
+      text-align:center ;
+    }
+  </style>
+</head>
+
+<body>
+  <section class="header grid">
+    <div class="logo">
+      <img src="" alt="Roomer-Logo">
+    </div>
+    <div class="navigation">
+      <p>Home</p>
+      <p>About</p>
+      <p>Connect with us</p>
+      <p>Contact Us</p>
+      <p>Help</p>
+      <p>Complains </p>
+      <p>Query</p>
+    </div>
+  </section>
+  <section class="main grid">
+    
+    
+    <section class=" sidebar">
+      <ul>
+      <li> Location </li>
+      <li>Area</li>
+      <li>Type</li>
+      <li>Geder</li>
+      <li>In Time</li>
+      <li>Food ?</li>
+      </ul>
+    </section>
+
+    <section class="main__section">
+      
+      <div class="property grid">
+        <article class="property_card">
+          <img src= "https://unsplash.it/250/200" />
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum, facilis saepe!
+           Eveniet soluta eum odio alias, fugiat excepturi eaque sed eligendi velit 
+           vitae unde pariatur minus totam illum labore ab!
+        </p>
+      </article>
+      <article class="property_card">
+        <img src= "https://unsplash.it/250/200" />
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum, facilis saepe!
+           Eveniet soluta eum odio alias, fugiat excepturi eaque sed eligendi velit 
+           vitae unde pariatur minus totam illum labore ab!
+        </p>
+      </article>
+      <article class="property_card">
+        <img src= "https://unsplash.it/250/200" />
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum, facilis saepe!
+           Eveniet soluta eum odio alias, fugiat excepturi eaque sed eligendi velit 
+           vitae unde pariatur minus totam illum labore ab!
+        </p>
+      </article>
+      <article class="property_card">
+        <img src= "https://unsplash.it/250/200" />
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum, facilis saepe!
+           Eveniet soluta eum odio alias, fugiat excepturi eaque sed eligendi velit 
+           vitae unde pariatur minus totam illum labore ab!
+        </p>
+      </article>
+      <article class="property_card">
+        <img src= "https://unsplash.it/250/200" />
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum, facilis saepe!
+           Eveniet soluta eum odio alias, fugiat excepturi eaque sed eligendi velit 
+           vitae unde pariatur minus totam illum labore ab!
+        </p>
+      </article>
+      <article class="property_card">
+        <img src= "https://unsplash.it/250/200" />
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum, facilis saepe!
+           Eveniet soluta eum odio alias, fugiat excepturi eaque sed eligendi velit 
+           vitae unde pariatur minus totam illum labore ab!
+        </p>
+      </article>
+      <article class="property_card">
+        <img src= "https://unsplash.it/250/200" />
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum, facilis saepe!
+           Eveniet soluta eum odio alias, fugiat excepturi eaque sed eligendi velit 
+           vitae unde pariatur minus totam illum labore ab!
+        </p>
+      </article>
+      <article class="property_card">
+        <img src= "https://unsplash.it/250/200" />
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum, facilis saepe!
+           Eveniet soluta eum odio alias, fugiat excepturi eaque sed eligendi velit 
+           vitae unde pariatur minus totam illum labore ab!
+        </p>
+      </article>
+      <article class="property_card">
+        <img src= "https://unsplash.it/250/200" />
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum, facilis saepe!
+           Eveniet soluta eum odio alias, fugiat excepturi eaque sed eligendi velit 
+           vitae unde pariatur minus totam illum labore ab!
+        </p>
+      </article>
+      <article class="property_card">
+        <img src= "https://unsplash.it/250/200" />
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum, facilis saepe!
+           Eveniet soluta eum odio alias, fugiat excepturi eaque sed eligendi velit 
+           vitae unde pariatur minus totam illum labore ab!
+        </p>
+      </article>
+      <article class="property_card">
+        <img src= "https://unsplash.it/250/200" />
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum, facilis saepe!
+           Eveniet soluta eum odio alias, fugiat excepturi eaque sed eligendi velit 
+           vitae unde pariatur minus totam illum labore ab!
+        </p>
+      </article>
+      <br>
+      <article class="property_card">
+        <img src= "https://unsplash.it/250/200" />
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum, facilis saepe!
+           Eveniet soluta eum odio alias, fugiat excepturi eaque sed eligendi velit 
+           vitae unde pariatur minus totam illum labore ab!
+        </p>
+      </article>
+      <article class="property_card">
+        <img src= "https://unsplash.it/250/200" />
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum, facilis saepe!
+           Eveniet soluta eum odio alias, fugiat excepturi eaque sed eligendi velit 
+           vitae unde pariatur minus totam illum labore ab!
+        </p>
+      </article>
+      </div>
+
+    </section>
+  
+  </section>
+  <section class="footer grid">
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur laboriosam hic vel dolore non cum? Commodi blanditiis reprehenderit saepe. Sint corporis modi voluptatum minima tempora magnam error. Possimus, odit minus?</p>
+    <h4>&copy;Roomer | All rights reserved.</h4>
+  </section>
+
+
+</body>
+
+</html>
