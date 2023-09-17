@@ -1,0 +1,221 @@
+:root{
+    --primary-bg: #c6a46e;
+    --second-bg: #333;
+    
+    --header-text:#fff;
+    --primary-text: #000;
+
+    --accent-clr1: #ffa500;
+    --accent-clr2: #008000;
+    --accent-clr: #3366ff;
+
+    /* Call for action buttons  */
+    --action-clr: #ff4d07;;
+}
+
+
+/* Global Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: var(--primary-bg);
+}
+li{
+    list-style-type:none;    
+}
+
+
+/* Left Menu Styles */
+.left-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 280px;
+    background-color: var(--second-bg);
+    color: var(--header-text);
+    padding: 20px;
+}
+
+/* Logo and Taglinne */
+.logo_container{
+    display:grid;
+    place-items:center;
+    padding:40px;
+}
+
+.logo{
+    font-size: 35px;
+    /* change font-family */
+    font-family :Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: 800;
+}
+
+.tagline{
+    color: var(--action-clr);
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.index{
+    text-align:left;
+}
+
+/* Example Menu Items */
+.menu-item {
+    margin-bottom: 20px;
+}
+
+
+/* Login Container */
+.login_container{
+    padding: 3em 0em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    /* background-color: #fff; */
+
+}
+.landlord_link{
+    color: var(--action-clr);
+    text-decoration :underline;
+    margin-left: 20px;
+}
+
+
+/* Right Hero Section Styles */
+.main_page{
+    margin-left: 300px;
+    /* Adjust for the width of the left menu */
+    padding: 40px;
+    height: 200vh;
+}
+
+/* Content Styles (Adjust as needed) */
+.hero_lander {
+    padding: 20px;
+    height: 85vh;
+}
+
+.brand_intro{
+    background-color: rgba(229, 141, 69, 0.566);
+    /* border: 2px solid rgb(255, 111, 0); */
+    border-radius: 5px;
+    box-shadow: 0px 0px 2px 2px grey;
+    height: 70vh;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    overflow: hidden;
+}
+.brand_image{
+    height: 100%;
+    width: 100%;
+}
+.room_search{
+    position:relative;
+    top: -15%;
+    height: 30%;
+    margin: 0 3em;
+    padding: 1em;
+    border:  3px solid var(--action-clr) ;
+    background-color: rgb(229, 141, 69);
+    border: 1px solid #ccc;
+    box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.233);
+    border-radius: 5px;
+}
+
+.hero_search{
+    /* background-color: red; */
+}
+
+.search_by,
+.filter_by{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1em;
+    gap: 2em;
+}
+
+.search_item{
+    background-color: #fff;
+    border: 2px solid black;
+    padding: 10px 30px;
+    border-radius: 3px;
+}
+
+.filter_item{
+    background-color: rgb(255, 255, 255);
+    border: 1px solid black;
+    padding: 5px 10px;
+    font-size: 16px;
+}
+
+#FLATS option{
+    padding: 10px 20px;
+}
+
+
+/* Rooms Container  */
+.rooms_container{
+    margin: 3em 1em;
+    padding-bottom: 2em;
+}
+.room_card{
+    display: grid;
+    grid-template-columns: 4fr 5fr;
+    height: 50vh;
+    margin: 2em 0;
+}
+.image_section{
+    background-color: #fff;
+    height: 50vh;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.room_image{
+    height: 100%;
+    transition: all .5s ease-in-out;
+}
+.room_image:hover{
+    transform: scale(1.08);
+}
+.text_section{
+    background-color: #ffffff;
+    border-radius: 5px;
+    position: relative;
+    margin: 2em;
+    padding: 1em;
+    left: -6em;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -2,506 +2,137 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Using GRIDs</title>
-  <link rel="stylesheet" href="Assets/style/style.css">
-  <style>
-
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roomer-Home</title>
+    <link rel="stylesheet" href="Assets/css/reusable.css">
+    <link rel="stylesheet" href="Assets/css/style.css">
 </head>
 
 <body>
-  <section class="header grid">
-    <div class="logo">
-      <!-- <img src="" alt="Roomer-Logo"> -->
-      <h1 class="web_logo">_RoomeR.</h1>
+    <!-- Left Menu Section -->
+    <div class="left-menu">
+        <!-- Logo and Tagline  -->
+        <div class="logo_container" id="logoContainer">
+            <div class="logo" id="logo">
+                _RooME<span>R</span>.
+            </div>
+            <div class="tagline_container" id="taglineContainer">
+                <p class="tagline">YOUR NEW HOME !</p>
+            </div>
+        </div>
+
+        <div class="index" id="index">
+            <ul class="menu-items">
+                <li class="menu-item">PROFILE</li>
+                <li class="menu-item">YOUR BOOKINGS</li>
+                <hr><br>
+                <li class="menu-item">HOME</li>
+                <li class="menu-item">BOOK NOW</li>
+                <li class="menu-item">SPECIAL OFFERS</li>
+                <li class="menu-item">
+                    ROOMS AND FLATS
+                </li>
+                <li class="menu-item">REVIEWS AND TESTIMONALS</li>
+                <li class="menu-item">CONTACT US</li>
+                <li class="menu-item">ABOUT US</li>
+                <!-- Add more menu items as needed -->
+            </ul>
+        </div>
+
+        <div class="login_container" id="loginContainer">
+            <button class="home_button" > 
+                <a href="login.html">Login</a> 
+            </button>
+            <button class="home_button">
+                <a href="signup.html">Sign Up</a>
+            </button>
+        </div>
+        <a href="#landlord" class="landlord_link">Are You a Property Owner ?</a>
     </div>
-    <div class="navigation">
-      <h1>Query</h1>
-      <h1>Complains </h1>
-      <h1>Help</h1>
-      <h1>Contact Us</h1>
-      <h1>Connect with us</h1>
-      <h1>About</h1>
-      <h1>Home</h1>
+
+
+
+
+    <!-- Right Hero Section -->
+    <div class="main_page">
+        <!-- <h1>Welcome to Our Website</h1> -->
+        <div class="hero_lander">
+
+            <div class="brand_intro" id="brandIntro">
+                <img class="brand_image" src="Assets/images/3_.jpg" alt="">
+                <div class="brand_lander">
+                    <h3>_RooMER.</h3>
+                    <hr>
+                    <h1>BOOK SMILES, NOT JUST ROOMS !</h1>
+                </div>
+            </div>
+
+            <!-- Filters and Other search options   -->
+            <div class="room_search" id="roomSearch">
+                <div class="hero_search" id="heroSearch">
+                    <!-- <p></p> -->
+                    <div class="search_by">
+                        <article class="search_item">City</article>
+                        <article class="search_item">Area</article>
+                        <p>or</p>
+                        <article class="search_item">Pin-Code</article>
+                    </div>
+
+                    <div class="filter_by">
+                        <p>Filter by : </p>
+                        <!-- <article class="filter_item" id="filterItem"> -->
+                        <select name="FLATS" id="FLATS" class="filter_item">
+                            <option value="flat">Flats</option>
+                            <option value="room">Rooms</option>
+                            <option value="hostel">Hostels</option>
+                            <option value="pg">PG's</option>
+
+                        </select>
+                        <!-- </article> -->
+                        <article class="filter_item" id="filterItem">Prize</article>
+                        <!-- Ratings -->
+                        <select name="ratings" id="ratings" class="filter_item">
+                            <option value="4"> Ratings : 4+</option>
+                            <option value="3"> Ratings : 3+</option>
+                            <option value="2"> Ratings : 2+</option>
+                            <option value="1"> Ratings : 1+</option>
+                        </select>
+
+                        <select name="availability" id="availability" class="filter_item">
+                            <option value="NOW">Immediate</option>
+                            <option value="7">Within 7 Days</option>
+                            <option value="15">Within 15 Days</option>
+                            <option value="30">Within 30 Days</option>
+                        </select>
+
+                    </div>
+                </div>
+            </div> 
+        </div>
+            <!--  End Lander Section -->
+
+        <div class="rooms_container" id="roomsContainer">
+            <div class="rooms" id="rooms">
+                <div class="room_card" id="roomCard">
+                    <section class="image_section">
+                        <img class="room_image" src="Assets/images/3_.jpg" alt="Room-01">
+                    </section>
+
+                    <section class="text_section">
+                        <!-- Details of the room  -->
+                        <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus ab quod accusantium totam eos aut repellat ea autem odit corporis! Qui molestiae optio inventore et harum animi a quas velit!</h1>
+                    </section>
+                </div>
+                
+            </div>
+        </div>
+
+
     </div>
-  </section>
-  <hr>
-  <section class="main grid">
 
-
-    <section class="sidebar">
-      <div class="login__options">
-        <button> Login</button>
-        <button> Register </button>
-      </div>
-      <div class="location__options">
-        <select name="" id="">
-          <option> Achalpur</option>          
-          <option> Adilabad </option>
-          <option> Agra </option>
-          <option> Ahmednagar </option>
-          <option> Aizawl </option>
-          <option> Ajmer </option>
-          <option> Aligarh </option>
-          <option> Allahabad </option>
-          <option> Almora </option>
-          <option> Ambala </option>
-          <option> Amravati </option>
-          <option> Amritsar </option>
-          <option> Anantapur </option>
-          <option> Aurangabad </option>
-          <option> Badami </option>
-          <option> Badrinath </option>
-          <option> Balasore </option>
-          <option> Bangalore </option>
-          <option> Bareilly </option>
-          <option> Belgaum </option>
-          <option> Bellary </option>
-          <option> Bhadravati </option>
-          <option> Bhagalpur </option>
-          <option> Bhairava </option>
-          <option> Bhainsa </option>
-          <option> Bhilwara </option>
-          <option> Bhopal </option>
-          <option> Bhubaneswar </option>
-          <option> Bhuj </option>
-          <option> Bidar </option>
-          <option> Bijapur </option>
-          <option> Bilaspur </option>
-          <option> Bina </option>
-          <option> Birbhum </option>
-          <option> Bodh Gaya </option>
-          <option> Bokaro </option>
-          <option> Bopal </option>
-          <option> Burdwan </option>
-          <option> Calicut </option>
-          <option> Chandigarh </option>
-          <option> Chennai </option>
-          <option> Cherrapunji </option>
-          <option> Chhapra </option>
-          <option> Chittoor </option>
-          <option> Coimbatore </option>
-          <option> Cuttack </option>
-          <option> Daman </option>
-          <option> Darbhanga </option>
-          <option> Dehradun </option>
-          <option> Delhi </option>
-          <option> Dharwad </option>
-          <option> Dhule </option>
-          <option> Dibrugarh </option>
-          <option> Durgapur </option>
-          <option> Erode </option>
-          <option> Faridabad </option>
-          <option> Farrukhabad </option>
-          <option> Fatehpur </option>
-          <option> Gaya </option>
-          <option> Ghaziabad </option>
-          <option> Ghazipur </option>
-          <option> Guwahati </option>
-          <option> Guntur </option>
-          <option> Gurgaon </option>
-          <option> Gwalior </option>
-          <option> Haldia </option>
-          <option> Haridwar </option>
-          <option> Hassan </option>
-          <option> Howrah </option>
-          <option> Hubli </option>
-          <option> Hyderabad </option>
-          <option> Indore </option>
-          <option> Jabalpur </option>
-          <option> Jaipur </option>
-          <option> Jamnagar </option>
-          <option> Jammu </option>
-          <option> Jamshedpur </option>
-          <option> Jaunpur </option>
-          <option> Jhansi </option>
-          <option> Jodhpur </option>
-          <option> Kanpur </option>
-          <option> Karnal </option>
-          <option> Kashmir </option>
-          <option> Kochi </option>
-          <option> Kolhapur </option>
-          <option> Kolkata </option>
-          <option> Kota </option>
-          <option> Kozhikode </option>
-          <option> Krishnagiri </option>
-          <option> Kurnool </option>
-          <option> Latur </option>
-          <option> Lucknow </option>
-          <option> Ludhiana </option>
-          <option> Madurai </option>
-          <option> Mahabaleshwar </option>
-          <option> Mangalore </option>
-          <option> Mathura </option>
-          <option> Meerut </option>
-          <option> Mirzapur </option>
-          <option> Moradabad </option>
-          <option> Mysore </option>
-          <option> Muzaffarnagar </option>
-          <option> Nagpur </option>
-          <option> Nasik </option>
-          <option> Nellore </option>
-          <option> New Delhi </option>
-          <option> Nizamabad </option>
-          <option> Ooty </option>
-          <option> Palakkad </option>
-          <option> Panaji </option>
-          <option> Patna </option>
-          <option> Pondicherry </option>
-          <option> Pune </option>
-          <option> Puri </option>
-          <option> Raipur </option>
-          <option> Rajkot </option>
-          <option> Ranchi </option>
-          <option> Ramgarh </option>
-          <option> ganj </option>
-          <option> Raurkela </option>
-          <option> Rishikesh </option>
-          <option> Rohtak </option>
-          <option> Roorkee </option>
-          <option> Rourkela </option>
-          <option> Rupnagar </option>
-          <option> Saharanpur </option>
-          <option> Salem </option>
-          <option> Sangli </option>
-          <option> Sangrur </option>
-          <option> Shimla </option>
-          <option> Sholapur </option>
-          <option> Silchar </option>
-          <option> Srinagar </option>
-          <option> Surat </option>
-          <option> Thane </option>
-          <option> Thoothukkudi </option>
-          <option> Tiruppur </option>
-          <option> Tiruchirappalli </option>
-          <option> Tirunelveli </option>
-          <option> Tirupati </option>
-          <option> Tiruvannamalai </option>
-          <option> Udaipur </option>
-          <option> Ujjain </option>
-          <option> Vadodara </option>
-          <option> Varanasi </option>
-          <option> Vasai-Virar </option>
-          <option> Vijayawada </option>
-          <option> Visakhapatnam </option>
-          <option> Vishakhapatnam </option>
-          <option> Vizianagaram </option>
-          <option> Warangal </option>
-          <option> Wardha </option>
-          <option> Warangal </option>
-          <option> Yavatmal </option>
-          <option> Yelahanka </option>
-          <option> Yellandu </option>
-          <option> Yercaud </option>
-          <option> Zirakpurcaud </option>
-          <option> Zirakpur </option>
-
-
-        </select>
-      </div>
-    </section>
-
-    <section class="main__section grid">
-
-      <div class="property grid">
-        <article class="property_card">
-          <!-- <img src= "https://unsplash.it/250/200" alt="property-image"/> -->
-          <img src="Assets/images/Hero-bg.png" alt="Property-Image" class="property__image">
-          <article class="details__imp grid">
-            <div class="rating">
-              <button type="button"> Ratings </button>
-            </div>
-            <p>Location:</p>
-            <p>Room types:</p>
-            <p>Gender:</p>
-            <p>Sharing:</p>
-            <p>Rent:</p>
-            <!-- <p>Room types:</p>
-            <p>Sharing:</p>
-            <p>Rent:</p> -->
-            <p></p>
-          </article>
-
-          <div class="property__options">
-            <button>Property Details</button>
-            <button>Owner Details</button>
-          </div>
-        </article>
-        <article class="property_card">
-          <!-- <img src= "https://unsplash.it/250/200" alt="property-image"/> -->
-          <img src="Assets/images/Hero-bg.png" alt="Property-Image" class="property__image">
-          <article class="details__imp grid">
-            <div class="rating">
-              <button type="button"> Ratings </button>
-            </div>
-            <p>Location:</p>
-            <p>Room types:</p>
-            <p>Gender:</p>
-            <p>Sharing:</p>
-            <p>Rent:</p>
-            <!-- <p>Room types:</p>
-            <p>Sharing:</p>
-            <p>Rent:</p> -->
-            <p></p>
-          </article>
-
-          <div class="property__options">
-            <button>Property Details</button>
-            <button>Owner Details</button>
-          </div>
-        </article>
-        <article class="property_card">
-          <!-- <img src= "https://unsplash.it/250/200" alt="property-image"/> -->
-          <img src="Assets/images/Hero-bg.png" alt="Property-Image" class="property__image">
-          <article class="details__imp grid">
-            <div class="rating">
-              <button type="button"> Ratings </button>
-            </div>
-            <p>Location:</p>
-            <p>Room types:</p>
-            <p>Gender:</p>
-            <p>Sharing:</p>
-            <p>Rent:</p>
-            <!-- <p>Room types:</p>
-            <p>Sharing:</p>
-            <p>Rent:</p> -->
-            <p></p>
-          </article>
-
-          <div class="property__options">
-            <button>Property Details</button>
-            <button>Owner Details</button>
-          </div>
-        </article>
-        <article class="property_card">
-          <!-- <img src= "https://unsplash.it/250/200" alt="property-image"/> -->
-          <img src="Assets/images/Hero-bg.png" alt="Property-Image" class="property__image">
-          <article class="details__imp grid">
-            <div class="rating">
-              <button type="button"> Ratings </button>
-            </div>
-            <p>Location:</p>
-            <p>Room types:</p>
-            <p>Gender:</p>
-            <p>Sharing:</p>
-            <p>Rent:</p>
-            <!-- <p>Room types:</p>
-            <p>Sharing:</p>
-            <p>Rent:</p> -->
-            <p></p>
-          </article>
-
-          <div class="property__options">
-            <button>Property Details</button>
-            <button>Owner Details</button>
-          </div>
-        </article>
-        <article class="property_card">
-          <!-- <img src= "https://unsplash.it/250/200" alt="property-image"/> -->
-          <img src="Assets/images/Hero-bg.png" alt="Property-Image" class="property__image">
-          <article class="details__imp grid">
-            <div class="rating">
-              <button type="button"> Ratings </button>
-            </div>
-            <p>Location:</p>
-            <p>Room types:</p>
-            <p>Gender:</p>
-            <p>Sharing:</p>
-            <p>Rent:</p>
-            <!-- <p>Room types:</p>
-            <p>Sharing:</p>
-            <p>Rent:</p> -->
-            <p></p>
-          </article>
-
-          <div class="property__options">
-            <button>Property Details</button>
-            <button>Owner Details</button>
-          </div>
-        </article>
-        <article class="property_card">
-          <!-- <img src= "https://unsplash.it/250/200" alt="property-image"/> -->
-          <img src="Assets/images/Hero-bg.png" alt="Property-Image" class="property__image">
-          <article class="details__imp grid">
-            <div class="rating">
-              <button type="button"> Ratings </button>
-            </div>
-            <p>Location:</p>
-            <p>Room types:</p>
-            <p>Gender:</p>
-            <p>Sharing:</p>
-            <p>Rent:</p>
-            <!-- <p>Room types:</p>
-            <p>Sharing:</p>
-            <p>Rent:</p> -->
-            <p></p>
-          </article>
-
-          <div class="property__options">
-            <button>Property Details</button>
-            <button>Owner Details</button>
-          </div>
-        </article>
-        <article class="property_card">
-          <!-- <img src= "https://unsplash.it/250/200" alt="property-image"/> -->
-          <img src="Assets/images/Hero-bg.png" alt="Property-Image" class="property__image">
-          <article class="details__imp grid">
-            <div class="rating">
-              <button type="button"> Ratings </button>
-            </div>
-            <p>Location:</p>
-            <p>Room types:</p>
-            <p>Gender:</p>
-            <p>Sharing:</p>
-            <p>Rent:</p>
-            <!-- <p>Room types:</p>
-            <p>Sharing:</p>
-            <p>Rent:</p> -->
-            <p></p>
-          </article>
-
-          <div class="property__options">
-            <button>Property Details</button>
-            <button>Owner Details</button>
-          </div>
-        </article>
-        <article class="property_card">
-          <!-- <img src= "https://unsplash.it/250/200" alt="property-image"/> -->
-          <img src="Assets/images/Hero-bg.png" alt="Property-Image" class="property__image">
-          <article class="details__imp grid">
-            <div class="rating">
-              <button type="button"> Ratings </button>
-            </div>
-            <p>Location:</p>
-            <p>Room types:</p>
-            <p>Gender:</p>
-            <p>Sharing:</p>
-            <p>Rent:</p>
-            <!-- <p>Room types:</p>
-            <p>Sharing:</p>
-            <p>Rent:</p> -->
-            <p></p>
-          </article>
-
-          <div class="property__options">
-            <button>Property Details</button>
-            <button>Owner Details</button>
-          </div>
-        </article>
-        <article class="property_card">
-          <!-- <img src= "https://unsplash.it/250/200" alt="property-image"/> -->
-          <img src="Assets/images/Hero-bg.png" alt="Property-Image" class="property__image">
-          <article class="details__imp grid">
-            <div class="rating">
-              <button type="button"> Ratings </button>
-            </div>
-            <p>Location:</p>
-            <p>Room types:</p>
-            <p>Gender:</p>
-            <p>Sharing:</p>
-            <p>Rent:</p>
-            <!-- <p>Room types:</p>
-            <p>Sharing:</p>
-            <p>Rent:</p> -->
-            <p></p>
-          </article>
-
-          <div class="property__options">
-            <button>Property Details</button>
-            <button>Owner Details</button>
-          </div>
-        </article>
-        <article class="property_card">
-          <!-- <img src= "https://unsplash.it/250/200" alt="property-image"/> -->
-          <img src="Assets/images/Hero-bg.png" alt="Property-Image" class="property__image">
-          <article class="details__imp grid">
-            <div class="rating">
-              <button type="button"> Ratings </button>
-            </div>
-            <p>Location:</p>
-            <p>Room types:</p>
-            <p>Gender:</p>
-            <p>Sharing:</p>
-            <p>Rent:</p>
-            <!-- <p>Room types:</p>
-            <p>Sharing:</p>
-            <p>Rent:</p> -->
-            <p></p>
-          </article>
-
-          <div class="property__options">
-            <button>Property Details</button>
-            <button>Owner Details</button>
-          </div>
-        </article>
-        <article class="property_card">
-          <!-- <img src= "https://unsplash.it/250/200" alt="property-image"/> -->
-          <img src="Assets/images/Hero-bg.png" alt="Property-Image" class="property__image">
-          <article class="details__imp grid">
-            <div class="rating">
-              <button type="button"> Ratings </button>
-            </div>
-            <p>Location:</p>
-            <p>Room types:</p>
-            <p>Gender:</p>
-            <p>Sharing:</p>
-            <p>Rent:</p>
-            <!-- <p>Room types:</p>
-            <p>Sharing:</p>
-            <p>Rent:</p> -->
-            <p></p>
-          </article>
-
-          <div class="property__options">
-            <button>Property Details</button>
-            <button>Owner Details</button>
-          </div>
-        </article>
-        <br>
-
-        <article class="property_card hidden">
-          <!-- <img src= "https://unsplash.it/250/200" alt="property-image"/> -->
-          <img src="Assets/images/Hero-bg.png" alt="Property-Image" class="property__image">
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum, facilis saepe!
-            Eveniet soluta eum odio alias, fugiat excepturi eaque sed eligendi velit
-            vitae unde pariatur minus totam illum labore ab!
-          </p>
-          <div class="property__details grid">
-            <article class="details__image">
-              <img src="Assets/images/Hero-bg.png" alt="Image-1">
-              <img src="Assets/images/brown-gradient.png" alt="Image-2">
-              <img src="Assets/images/Hero-bg.png" alt="Image-1">
-              <img src="Assets/images/brown-gradient.png" alt="Image-2">
-            </article>
-            <article class="details__imp">
-              <div class="rating">
-                <button type="button"> Ratings </button>
-              </div>
-              <p>Location:</p>
-              <p>Room types:</p>
-              <p>Rent:</p>
-
-            </article>
-          </div>
-
-          <div class="property__options">
-            <button>Property Details</button>
-            <button>Owner Details</button>
-          </div>
-        </article>
-      </div>
-
-    </section>
-
-  </section>
-  <section class="footer grid">
-    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur laboriosam hic vel dolore non cum? Commodi
-      blanditiis reprehenderit saepe. Sint corporis modi voluptatum minima tempora magnam error. Possimus, odit minus?
-    </p>
-    <h4>&copy;Roomer | All rights reserved.</h4>
-
-  </section>
+    <!-- JavaScript File  -->
+    <script src="Assets/script.js"></script>
 </body>
+
 </html>
