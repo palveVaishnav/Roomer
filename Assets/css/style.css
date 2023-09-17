@@ -100,7 +100,7 @@ li{
 }
 
 .brand_intro{
-    background-color: rgba(229, 141, 69, 0.566);
+    background-color: rgba(0, 0, 0, 0.553);
     /* border: 2px solid rgb(255, 111, 0); */
     border-radius: 5px;
     box-shadow: 0px 0px 2px 2px grey;
@@ -113,7 +113,14 @@ li{
 .brand_image{
     height: 100%;
     width: 100%;
+    z-index: -1;
 }
+.brand_lander{
+    position: absolute;
+    z-index:1;
+    color: #fff;
+}
+
 .room_search{
     position:relative;
     top: -15%;
@@ -164,15 +171,19 @@ li{
     margin: 3em 1em;
     padding-bottom: 2em;
 }
+
 .room_card{
     display: grid;
     grid-template-columns: 4fr 5fr;
-    height: 50vh;
     margin: 2em 0;
 }
+.card_even{
+    grid-template-columns: 5fr 4fr;
+}
+
 .image_section{
     background-color: #fff;
-    height: 50vh;
+    height: 55vh;
     border-radius: 10px;
     overflow: hidden;
 }
@@ -183,27 +194,77 @@ li{
 .room_image:hover{
     transform: scale(1.08);
 }
+
 .text_section{
-    background-color: #ffffff;
+    background-color: #333;
+    color: #fff;
     border-radius: 5px;
     position: relative;
     margin: 2em;
     padding: 1em;
     left: -6em;
+    z-index: 1;
+}
+.text_even{
+    left: 6em;
+}
+.room_location{
+    display: flex;
+    gap: 10px;
+    /* background-color: red; */
+}
+
+.room_details{
+    margin: -1em 1em 1em 1em;
+    /* background-color: violet; */
 }
 
 
 
+.room_facilities{
+    /* background-color: red; */
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    place-items: center;
+    gap: 10px;
+}
+.facility{
+    /* background-color: yellow; */
+    padding: 5px 10px;
+}
+
+.more_details{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin:1em;
+}
 
 
-
-
-
-
-
-
-
-
+footer{
+    /* position: relative; */
+    height: 30vh;
+    background-color: #333;
+    color: #cdcaca;
+    bottom: 0;
+    margin: 0 -3em;
+    padding: 4em;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 2em;
+}
+.footer_about p{
+    margin-left:20px;
+}
+.footer_links{
+    display:grid;
+    margin-left: 20px;
+}
+.footer_links a{
+    font-size: 18px;
+    color: inherit;
+}
 
 
 
