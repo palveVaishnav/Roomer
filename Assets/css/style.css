@@ -4,11 +4,6 @@
     
     --header-text:#fff;
     --primary-text: #000;
-
-    --accent-clr1: #ffa500;
-    --accent-clr2: #008000;
-    --accent-clr: #3366ff;
-
     /* Call for action buttons  */
     --action-clr: #ff4d07;;
 }
@@ -48,12 +43,13 @@ li{
 .logo{
     font-size: 35px;
     /* change font-family */
+    color: var(--action-clr);
     font-family :Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-weight: 800;
 }
 
 .tagline{
-    color: var(--action-clr);
+    /* color: var(--action-clr); */
     font-size: 15px;
     font-weight: 700;
 }
@@ -114,6 +110,11 @@ li{
     height: 100%;
     width: 100%;
     z-index: -1;
+    transition: all 30s ease-in-out;
+}
+
+.hero_lander:hover .brand_image{
+    transform: scale(2);
 }
 .brand_lander{
     position: absolute;
@@ -124,7 +125,7 @@ li{
 .room_search{
     position:relative;
     top: -15%;
-    height: 30%;
+    height: auto;
     margin: 0 3em;
     padding: 1em;
     border:  3px solid var(--action-clr) ;
@@ -150,8 +151,9 @@ li{
 .search_item{
     background-color: #fff;
     border: 2px solid black;
-    padding: 10px 30px;
+    padding: 15px 30px;
     border-radius: 3px;
+    font-weight: 600;
 }
 
 .filter_item{

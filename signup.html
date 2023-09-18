@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RooME-Login</title>
+    <link rel="stylesheet" href="Assets/css/login.css">
+
+</head>
+
+<body>
+    <section class="main">
+        <!-- About the  Website -->
+        <section class="left">
+            <h1>Welcome to RooMER..</h1>
+            <h3>
+                <ul>
+                    <li>Find the perfect room in seconds.</li> <br>
+                    <li>Move to new City with ease</li> <br>
+                    <li>Student or employee, we've got you covered.</li> <br>
+                    <!-- <li></li> -->
+                </ul>
+            </h3>
+            <br><br><br><br>
+            <h2>Log in to get started on your journey!</h2>
+        </section>
+        <!-- Login Form -->
+        <section class="right">
+            <form action="">
+                <label for="name">Name :
+                    <input type="text" name="name" placeholder="Enter Name" required> <br><br>
+                </label>
+
+                <label for="email">Email :
+                    <input type="email" name="Email" placeholder="Enter Email" required>  <br> <br>
+                </label>
+
+                <label for="userType">User Type :
+                    <!-- 
+                    <input type="checkbox" name="tennent" id="userType"> Tennent <br>
+                    <input type="checkbox" name="lanndlord" id="userType"> Landlord
+                     -->
+                    <select name="userType" id="userType">
+                        <option value="tennent">Tennent</option>
+                        <option value="landlord_link">Landlord</option>
+                    </select>
+                </label>
+                <!-- <input type="checkbox" checked="checked"> Remember me -->
+                <br><br><br>
+                <input type="submit" class="button">
+
+            </form>
+        </section>
+    </section>
+</body>
+
+</html>
