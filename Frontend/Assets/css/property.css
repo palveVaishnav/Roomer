@@ -1,0 +1,82 @@
+.main_page {
+    height: auto;
+}
+
+.main_details {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    gap: 20px;
+    /* padding: 1em; */
+}
+
+.prop_images_active {
+    background-color: #fff;
+    height: 60vh;
+    border-radius: 20px;
+    width: 60vh;
+    overflow: hidden;
+}
+
+.prop_images {
+    display: flex;
+    gap: 1em;
+    margin: 1em;
+    border-radius:10px;
+}
+
+.NotActive {
+    background-color: #fff;
+    height: 20vh;
+    width: 30vh;
+    border-radius: 10px;
+}
+
+#myimage,
+#NotActiveImg{
+    width: calc(100%);
+    height: calc(100%);
+
+}
+.NotActive{
+		
+}
+.prop_details{
+	font-size: 30px;
+}
+
+.prop_reviews {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    gap: 2em;
+    margin: 1em;
+    padding: 1em;
+}
+
+.review {
+    background-color: #fff;
+    height: 30vh;
+    border-radius: 40px;
+    padding: 40px;
+    /* width: 40vh; */
+}
+
+/* * {box-sizing: border-box;} */
+
+.img-magnifier-container {
+    position: relative;
+}                                                                                                 
+
+.img-magnifier-glass {
+    position: absolute;
+    border: 3px solid #000;
+    border-radius: 50%;
+    cursor: none;
+    /*Set the size of the magnifier glass:*/
+    width: 30px;
+    height: 30px;
+}
+
+.img-magnifier-container:hover .img-magnifier-glass{
+    width: 10em;                                                                          
+    height: 10em;
+}

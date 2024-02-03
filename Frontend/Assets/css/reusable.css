@@ -1,0 +1,42 @@
+:root{
+    --primary-bg: #c6a46e;
+    --second-bg: #333;
+    
+    --header-text:#fff;
+    --primary-text: #000;
+
+    --accent-clr1: #ffa500;
+    --accent-clr2: #008000;
+    --accent-clr: #3366ff;
+
+    /* Call for action buttons  */
+    --action-clr: #ff4d07;
+}
+
+
+button{
+    background-color: var(--brand-color);
+    width:fit-content;
+    padding: 10px 20px;
+    border-radius: 5px;
+    /* background-color: #ff4d07; */
+    border: 2px solid var(--action-clr);
+    color: #fff;
+    font-weight: bold;
+    transition: all .7s ease-out;
+}
+button:hover{
+    background-color: var(--action-clr);
+}
+hr{
+    border: 1px solid white;
+    border-radius: 100%;
+}
+a{
+    text-decoration: none;
+    color: white !important; 
+}
+
+
+
+

@@ -1,0 +1,61 @@
+:root{
+    --primary-bg: #c6a46e;
+    --second-bg: #333;
+    
+    --header-text:#fff;
+    --primary-text: #000;
+    /* Call for action buttons  */
+    --action-clr: #ff4d07;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+}
+.main{
+    display: grid;
+    grid-template-columns:repeat(2,1fr);
+    height: 100vh;
+}
+.left{
+    background-color: var(--second-bg);
+    color: var(--header-text);
+    display:flex;
+    flex-direction: column;
+    padding-top: 7em;
+    /* justify-content: center; */
+    align-items: center;
+    gap:-1em;
+}
+.left h1{
+    font-size: 3em;
+}
+.right{
+    background-color: var(--primary-bg);
+    color: var(--primary-text);
+    /* background-color:#777; */
+    display: grid;
+    place-items: center;
+}
+
+input{
+    padding: 1em 5em;
+}
+
+a{
+    color: var(--header-text);
+}
+.button{
+    background-color: var(--second-bg);
+    color: var(--header-text);
+    font-weight: bold;
+	padding: .8em 2.5em;
+}
+
+select{
+    /* background-color: red; */
+    padding: .5em 2em;
+    font-size: 1em;
+    font-weight: 600;
+}
+

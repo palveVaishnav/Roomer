@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roomer-Home</title>
+    <link rel="stylesheet" href="Assets/css/reusable.css">
+    <link rel="stylesheet" href="Assets/css/style.css">
+    <link rel="stylesheet" href="Assets/css/property.css">
+    <script src="Assets/script.js"></script>
+    <script src="Assets/Script/magnifier.js"></script>
+</head>
+
+<body>
+    <!-- Left Menu Section -->
+    <div class="left-menu">
+        <!-- Logo and Tagline  -->
+        <div class="logo_container" id="logoContainer">
+            <div class="logo" id="logo">
+                _RooME<span>R</span>.
+            </div>
+            <div class="tagline_container" id="taglineContainer">
+                <p class="tagline">YOUR NEW HOME !</p>
+            </div>
+        </div>
+
+        <div class="index" id="index">
+            <ul class="menu-items">
+                <li class="menu-item">
+                    <a href="tennent.html">PROFILE</a>
+                </li>
+                <li class="menu-item">YOUR BOOKINGS</li>
+                <hr><br>
+                <li class="menu-item">
+                    <a href="index.html">HOME</a>
+                </li>
+                <li class="menu-item">BOOK NOW</li>
+                <li class="menu-item">SPECIAL OFFERS</li>
+                <li class="menu-item">
+                    ROOMS AND FLATS
+                </li>
+                <li class="menu-item">REVIEWS AND TESTIMONALS</li>
+                <li class="menu-item">CONTACT US</li>
+                <li class="menu-item">ABOUT US</li>
+                <!-- Add more menu items as needed -->
+            </ul>
+        </div>
+
+        <div class="login_container" id="loginContainer">
+            <button class="home_button">
+                <a href="login.html">Login</a>
+            </button>
+            <button class="home_button">
+                <a href="signup.html">Sign Up</a>
+            </button>
+        </div>
+        <a href="#landlord" class="landlord_link">Are You a Property Owner ?</a>
+    </div>
+
+    <!-- Right Hero Section -->
+    <div class="main_page">
+        <h1>Property page </h1>
+        <div class="property">
+
+            <section class="main_details">
+
+                <div class="prop_images_active img-magnifier-container">
+                    <img id="myimage" src="Assets/Images/book.jpg" alt="Popperty Images">
+
+                </div>
+                <script>
+                    /* Execute the magnify function: */
+                    magnify("myimage", 3);
+                    /* Specify the id of the image, and the strength of the magnifier glass: */
+                </script>
+                <div class="prop_details">
+	            <br>    AREA : 
+                    <br>	CITY : 
+                    <br>	Pin-Code: 
+                    <br>	Prizing:
+                    <br><br><br>
+                    <br>	Ratings:
+                    <br>	Girls/Boys:
+                    <br>	More Details:
+                    
+                </div>
+
+            </section>
+
+            <section class="prop_images">
+                <!-- Images Here -->
+                <div class="NotActive">
+					<img id="NotActiveImg" src="Assets/Images/cat.jpg" alt="Popperty Images">
+				</div>
+				
+                <div class="NotActive">
+					<img id="NotActiveImg" src="Assets/Images/coffee2.jpg" alt="Popperty Images">
+				</div>
+				
+                <div class="NotActive">
+					<img id="NotActiveImg" src="Assets/Images/monk.png" alt="Popperty Images">
+				</div>
+				
+                <div class="NotActive">
+					<img id="NotActiveImg" src="Assets/Images/gamepad.jpg" alt="Popperty Images">
+				</div>
+  
+            </section>
+            <br><br>
+		<div>
+		<button> BOOK NOW </button>
+	</div>
+            <h3>See What previous Tennent has to say</h3>
+            <section class="prop_reviews">
+                <!-- Reviews Here  -->
+                <div class="review">
+			<p>User id </p>
+			Reviews 1 Here
+		</div>
+                <div class="review">
+			<p>User id </p>
+			Reviews 1 Here
+		</div>
+		<div class="review">
+			<p>User id </p>
+			Reviews 1 Here
+		</div>
+		<div class="review">
+			<p>User id </p>
+			Reviews 1 Here
+		</div>
+               
+            </section>
+        </div>
+
+	
+
+    </div> <!-- Right Scrollable section -->
+    <!-- JavaScript File  -->
+
+</body>
+
+</html>
