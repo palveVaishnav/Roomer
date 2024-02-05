@@ -26,13 +26,7 @@
         <!-- Sign Up Form -->
         <section class="right">
             <?php
-            $conn = pg_connect('host=localhost dbname=roomer user=postgres password=123456789');
-
-            if (!$conn) {
-                echo '<h1>Not Connected</h1>';
-                exit;
-            }
-
+           require_once('pgConfig.php');
             if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $name = $_POST["name"];
                 $email = $_POST["email"];

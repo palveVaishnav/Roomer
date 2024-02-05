@@ -81,38 +81,35 @@
 
         <!--  End Lander Section -->
         <?php
-        $conn = pg_connect('host=localhost dbname=roomer user=postgres password=123456789');
-        if (!$conn) {
-            echo "<h1>Not Connected</h1>";
-        } else {
-            $query = "SELECT * FROM property";
-            $result = pg_query($conn, $query);
-            if (!$result) {
-                echo "<h1> Connected but unable to render the data </h1>";
+        require_once('pgConfig.php');
+        $query = "SELECT * FROM property";
+        $result = pg_query($conn, $query);
+        if (!$result) {
+            echo "<h1> Connected but unable to render the data </h1>";
+        }
+        while ($row = pg_fetch_assoc($result)) {
+            $p_id = $row['p_id'];
+            $p_city = $row['p_city'];
+            $p_area = $row['p_area'];
+            $p_description = $row['p_description'];
+            $p_type = $row['p_type'];
+            $p_rating = $row['p_rating'];
+            $p_gender = $row['p_gender'];
+            $p_food = ($row['p_food'] == 'yes') ? 'Available' : 'Not Available';
+            $p_parking = ($row['p_parking'] == 'yes') ? 'Available' : 'Not Available';
+            $p_wifi = ($row['p_wifi'] == 'yes') ? 'Available' : 'Not Available';
+            $p_availability = $row['p_availability'];
+            $p_owner = $row['p_owner'];
+            $p_image = $row['p_image'];
+
+            $secondQuery = "SELECT lord_name FROM LANDLORD WHERE lord_id = $p_owner";
+            $secondResult = pg_query($conn, $secondQuery);
+            $name = '';
+            if ($row = pg_fetch_assoc($secondResult)) {
+                $name = $row['lord_name'];
             }
-            while ($row = pg_fetch_assoc($result)) {
-                $p_id = $row['p_id'];
-                $p_city = $row['p_city'];
-                $p_area = $row['p_area'];
-                $p_description = $row['p_description'];
-                $p_type = $row['p_type'];
-                $p_rating = $row['p_rating'];
-                $p_gender = $row['p_gender'];
-                $p_food = ($row['p_food'] == 'yes') ? 'Available' : 'Not Available';
-                $p_parking = ($row['p_parking'] == 'yes') ? 'Available' : 'Not Available';
-                $p_wifi = ($row['p_wifi'] == 'yes') ? 'Available' : 'Not Available';
-                $p_availability = $row['p_availability'];
-                $p_owner = $row['p_owner'];
-                $p_image = $row['p_image'];
 
-                $secondQuery = "SELECT lord_name FROM LANDLORD WHERE lord_id = $p_owner";
-                $secondResult = pg_query($conn, $secondQuery);
-                $name ='';
-                if ($row = pg_fetch_assoc($secondResult)) {
-                    $name = $row['lord_name'];
-                }
-
-                echo '
+            echo '
         <div class="rooms_container" id="roomsContainer">
             <div class="rooms" id="rooms">
                 <!-- Room Card 1-->
@@ -150,13 +147,7 @@
                 </div>
             </div>
         </div>';
-            }
         }
-
-
-
-
-
         ?>
         <!-- Room Cards and Details  -->
 
@@ -172,7 +163,7 @@
     </div> <!-- Right Scrollable section -->
 
     <!-- JavaScript File  -->
-    
+
 </body>
 
 </html>
