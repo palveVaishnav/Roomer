@@ -12,49 +12,15 @@
 
 <body>
     <!-- Left Menu Section -->
-    <div class="left-menu">
-        <!-- Logo and Tagline  -->
-        <div class="logo_container" id="logoContainer">
-            <div class="logo" id="logo">
-                _RooME<span>R</span>.
-            </div>
-            <div class="tagline_container" id="taglineContainer">
-                <p class="tagline">YOUR NEW HOME !</p>
-            </div>
-        </div>
-
-        <div class="index" id="index">
-            <ul class="menu-items">
-                <li class="menu-item">
-                    <a href="tennent.html">PROFILE</a>
-                </li>
-                <li class="menu-item">YOUR BOOKINGS</li>
-                <hr><br>
-                <li class="menu-item">
-                    <a href="index.html">HOME</a>
-                </li>
-                <li class="menu-item">BOOK NOW</li>
-                <li class="menu-item">SPECIAL OFFERS</li>
-                <li class="menu-item">
-                    ROOMS AND FLATS
-                </li>
-                <li class="menu-item">REVIEWS AND TESTIMONALS</li>
-                <li class="menu-item">CONTACT US</li>
-                <li class="menu-item">ABOUT US</li>
-                <!-- Add more menu items as needed -->
-            </ul>
-        </div>
-
-        <div class="login_container" id="loginContainer">
-            <button class="home_button">
-                <a href="login.html">Login</a>
-            </button>
-            <button class="home_button">
-                <a href="signup.html">Sign Up</a>
-            </button>
-        </div>
-        <a href="#landlord" class="landlord_link">Are You a Property Owner ?</a>
-    </div>
+   <div class="left-menu" id="leftMenu"></div>
+    <script>
+        // Fetch and inject the component into the container
+        fetch('./components/leftIndex.html')
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('leftMenu').innerHTML = html;
+            });
+    </script>
 
     <!-- Right Hero Section -->
     <div class="main_page">

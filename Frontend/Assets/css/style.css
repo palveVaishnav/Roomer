@@ -1,7 +1,6 @@
 :root{
     --primary-bg: #c6a46e;
-    --second-bg: #333;
-    
+    --second-bg: #333;    
     --header-text:#fff;
     --primary-text: #000;
     /* Call for action buttons  */
@@ -63,6 +62,7 @@ li{
     margin-bottom: 1px;
     padding: 10px;
 }
+
 .menu-item:hover{
 	background-color: var(--primary-bg);
     border: 1px dotted black;
@@ -91,7 +91,7 @@ li{
     margin-left: 300px;
     /* Adjust for the width of the left menu */
     padding: 40px;
-    height: 200vh;
+    height: auto;
 }
 
 /* Content Styles (Adjust as needed) */

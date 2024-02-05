@@ -1,0 +1,151 @@
+:root{
+    --primary-bg: #c6a46e;
+    --second-bg: #333;    
+    --header-text:#fff;
+    --primary-text: #000;
+    /* Call for action buttons  */
+    --action-clr: #ff4d07;;
+}
+
+
+
+.aboutLander {
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    place-items: center;
+    /* border: 2px dotted black; */
+    height: 80vh;
+}
+
+.landerText {
+    /* place-content: center; */
+}
+
+.landerText h1 {
+    font-size: 1.5em;
+    margin-left: -2em;
+
+}
+
+.landerText h3 {
+    font-size: 4em;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.landerImages {
+    display: grid;
+    place-content: center;
+    /* border: 2px dotted black; */
+    border-radius: 3em;
+    /* overflow: hidden; */
+    width: max-content;
+}
+
+.imageOne,
+.imageTwo,
+.imageThree,
+.imageFour {
+    transition: .6s ease-in-out;
+}
+
+.imageOne {
+    border-radius: 2em 0 0 0;
+}
+
+.imageTwo {
+    border-radius: 0 2em 0 0;
+}
+
+.imageThree {
+    border-radius: 0 0 0 2em;
+}
+
+.imageFour {
+    border-radius: 0 0 2em 0;
+}
+
+
+.imageOne:hover,
+.imageTwo:hover,
+.imageThree:hover,
+.imageFour:hover {
+    transform: scale(1.5);
+    overflow: visible;
+}
+
+.imageOne:hover,
+.imageTwo:hover,
+.imageThree:hover,
+.imageFour:hover .landerImages {
+    overflow: visible;
+}
+
+
+.landerImage {
+    width: 30vh;
+    /* bor */
+}
+
+
+
+/* Mission  */
+
+
+.missionContainer{
+    display: grid;
+    height: 100vh;
+}
+.missionTitle{
+    font-size: 2em;
+    display: flex;
+    justify-content: center;
+}
+
+.missionCards{
+    display: flex;
+    /* border: 2px dotted black; */
+    padding: 1em;
+}
+.missionCard{
+    border: 1px dotted black;
+    border-radius: 3em;
+    padding: 2em;
+    margin: 1em;
+    height: fit-content;
+    transition: .3s ease-in-out;
+}
+.missionCard:hover{
+    transform: translateY(1.2);
+    /* background-color: rgb(239, 136, 72); */
+    border: 4px;
+    border-color: var(--action-clr);
+    box-shadow: 5px 5px 5px 5px var(--second-bg);
+}
+
+.cardTitle{
+    font-style: bolder;
+}
+.cardDescription{
+    font-size: 20px;
+    padding: 10px 15px;
+
+}
+/* Who are we */
+.whoAreWe{
+    margin: 1em;
+    padding: 2em;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    place-content: center;
+    /* height: 80vh; */
+    border: 2px dotted black;
+}
+.weText{
+    padding:  2em 6em;
+}
+.weTitle{
+    font-size: 2em;
+}
+.weDescription{
+    font-size: 20px;
+}
