@@ -17,7 +17,7 @@
 button{
     background-color: var(--brand-color);
     width:fit-content;
-    padding: 10px 20px;
+    padding: 20px 40px;
     border-radius: 5px;
     /* background-color: #ff4d07; */
     border: 2px solid var(--action-clr);

@@ -3,9 +3,9 @@
 
 <head>
     <title>Roomer-Home</title>
-    <link rel="stylesheet" href="Assets/css/reusable.css">
-    <link rel="stylesheet" href="Assets/css/style.css">
-    <link rel="stylesheet" href="Assets/css/chat.css">
+    <link rel="stylesheet" href="../Assets/css/reusable.css">
+    <link rel="stylesheet" href="../Assets/css/style.css">
+    <link rel="stylesheet" href="../Assets/css/chat.css">
     <style>
         .main_page{
             height: auto;
@@ -14,15 +14,9 @@
 </head>
 
 <body>
-    <div class="left-menu" id="leftMenu"></div>
-    <script>
-        // Fetch and inject the component into the container
-        fetch('./components/leftIndex.html')
-            .then(response => response.text())
-            .then(menubar => {
-                document.getElementById('leftMenu').innerHTML = menubar;
-            });
-    </script>
+    <?php
+        require_once('../components/leftIndex.php');
+    ?>
 
     <div class="main_page">
         <div id="chat-container">

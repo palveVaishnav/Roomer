@@ -80,7 +80,7 @@ CREATE TABLE TENANT (
     t_history INT REFERENCES PROPERTY(p_id) ON DELETE CASCADE,
     t_verified VARCHAR(3)
 );
-
+/*
 INSERT INTO TENANT VALUES (1, 'rahul@example.com', 'Rahul Sharma', 'PASS01', 101, 'yes');
 INSERT INTO TENANT VALUES (2, 'neha@example.com', 'Neha Kapoor', 'PASS02', 103, 'no');
 INSERT INTO TENANT VALUES (3, 'sandeep@example.com', 'Sandeep Verma', 'PASS03', 101, 'yes');
@@ -88,7 +88,7 @@ INSERT INTO TENANT VALUES (4, 'aisha@example.com', 'Aisha Singh', 'PASS04', 105,
 INSERT INTO TENANT VALUES (5, 'raj@example.com', 'Raj Malhotra', 'PASS05', 101, 'no');
 INSERT INTO TENANT VALUES (6, 'kavya@example.com', 'Kavya Patel', 'PASS06', 101, 'yes');
 INSERT INTO TENANT VALUES (7, 'ankit@example.com', 'Ankit Gupta', 'PASS07', 101, 'yes');
-
+*/
 
 /* History Details */
 /*
@@ -97,18 +97,19 @@ INSERT INTO TENANT VALUES (7, 'ankit@example.com', 'Ankit Gupta', 'PASS07', 101,
 */
 CREATE TABLE HISTORY (
     h_id INT PRIMARY KEY,
-    t_id SERIAL REFERENCES TENANT(t_id) ON DELETE CASCADE,
+    t_id INT REFERENCES TENANT(t_id) ON DELETE CASCADE,
     p_id INT REFERENCES PROPERTY(p_id) ON DELETE CASCADE,
     review VARCHAR(100),
     duration INT,
     rating INT
 );
+/*
 INSERT INTO HISTORY VALUES (301, 01, 101, 'Good owner behavior', 10, 4);
 INSERT INTO HISTORY VALUES (302, 02, 102, 'No water supply', 6, 3);
 INSERT INTO HISTORY VALUES (303, 03, 103, 'It is better than my previous room.', 12, 5);
 INSERT INTO HISTORY VALUES (304, 04, 104, 'Bad', 3, 2);
 INSERT INTO HISTORY VALUES (305, 05, 105, 'Worst', 2, 1);
-
+*/
 
 SELECT * FROM admin;
 

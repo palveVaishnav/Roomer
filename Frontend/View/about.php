@@ -3,21 +3,16 @@
 
 <head>
     <title>Roomer-Home</title>
-    <link rel="stylesheet" href="Assets/css/reusable.css">
-    <link rel="stylesheet" href="Assets/css/style.css">
-    <link rel="stylesheet" href="Assets/css/about.css">
+    <link rel="stylesheet" href="../Assets/css/reusable.css">
+    <link rel="stylesheet" href="../Assets/css/style.css">
+    <link rel="stylesheet" href="../Assets/css/about.css">
 </head>
 
 <body>
-    <div class="left-menu" id="leftMenu"></div>
-    <script>
-        // Fetch and inject the component into the container
-        fetch('./components/leftIndex.html')
-            .then(response => response.text())
-            .then(menubar => {
-                document.getElementById('leftMenu').innerHTML = menubar;
-            });
-    </script>
+    <?php
+        require_once('../components/leftIndex.php');
+    ?>
+    
     <div class="main_page">
         <!-- first -->
         <div class="aboutLander">
@@ -28,12 +23,12 @@
             <div class="landerImages">
                 <!-- 4 images -->
                 <div class="fourImages">
-                    <img src="./Assets/images/lander.jpg" alt="" class="landerImage imageOne">
-                    <img src="./Assets/images/lander.jpg" alt="" class="landerImage imageTwo">
+                    <img src="../Assets/images/lander.jpg" alt="" class="landerImage imageOne">
+                    <img src="../Assets/images/lander.jpg" alt="" class="landerImage imageTwo">
                 </div>
                 <div class="fourImages">
-                    <img src="./Assets/images/lander.jpg" alt="" class="landerImage imageThree">
-                    <img src="./Assets/images/lander.jpg" alt="" class="landerImage imageFour">
+                    <img src="../Assets/images/lander.jpg" alt="" class="landerImage imageThree">
+                    <img src="../Assets/images/lander.jpg" alt="" class="landerImage imageFour">
                 </div>
             </div>
         </div>
@@ -43,7 +38,7 @@
         <!-- Third -->
         <div class="whoAreWe">
             <div class="weImage">
-                <img src="./Assets/images/devTeam.jpg" alt="Image">
+                <img src="../Assets/images/devTeam.jpg" alt="Image">
             </div>
             <div class="weText">
                 <h3 class="weTitle"> Who Are We</h3>
@@ -109,7 +104,7 @@
 
         <footer id="footerPage"></footer>
         <script>
-            fetch('./components/footer.html')
+            fetch('../components/footer.html')
                 .then(res => res.text())
                 .then(footer => {
                     document.getElementById('footerPage').innerHTML = footer;

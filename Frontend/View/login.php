@@ -16,10 +16,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     $row = pg_fetch_assoc($result);
-
     if ($row) {
-        $_SESSION["user_email"] = $row["t_email"];
-        $_SESSION["user_name"] = $row["t_name"];
+        session_start();
+        $userId = $row["t_id"];
+        $_SESSION['userId'] = $userId;
         header("Location: index.php"); // Redirect to the dashboard page after successful login
         exit;
     } else {
@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RooME-Login</title>
-    <link rel="stylesheet" href="Assets/css/login.css">
+    <link rel="stylesheet" href="../Assets/css/login.css">
 </head>
 
 <body>

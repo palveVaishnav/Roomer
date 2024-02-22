@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RooME-Sign Up</title>
-    <link rel="stylesheet" href="Assets/css/login.css">
+    <link rel="stylesheet" href="../Assets/css/login.css">
 </head>
 
 <body>
@@ -47,6 +47,7 @@
                 }
 
                 echo '<p>Account created successfully. Please wait for verification.</p>';
+                header("Location: login.php");
             }
             ?>
             <form method="post" action="">

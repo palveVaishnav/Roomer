@@ -1,0 +1,48 @@
+
+.left-menu {
+    width: 50%;
+    clip-path: polygon(0 0, 60% 0, 80% 50%, 60% 100%, 0 100%);
+}
+.main_page{
+    margin-left:50% ;
+}
+.receiptFor{
+    font-size: 2em;
+}
+.billDetails{
+    margin: 3em;
+}
+.iconImage{
+    height: 3.3em;
+}
+.theAmount{
+    margin-left: 1em;
+    font-size: 2.5em; 
+    color: rgba(255, 255, 255, 0.556);   
+}
+.owner,
+.date,
+.amount{
+    display: flex;
+    gap: 10px;
+}
+.cancelBtn{
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+.payOptions{
+    /* margin:3em 0; */
+    padding: 2em;
+}
+.payInfo{
+    font-size: 2em;
+}
+.qrcode{
+    width: 25em;
+    margin: 2em;
+}
+.proceed{
+    margin-left: 25em;
+}

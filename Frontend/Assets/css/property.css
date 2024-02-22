@@ -1,40 +1,166 @@
-.main_page{
+.main_page {}
+
+.propLander {
+    /* height: aot; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
 }
-.propLander{
-    height: 50vh;
+
+.propImages {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    place-content: center;
+    box-shadow: 2px 2px 4px 2px grey;
+    transition: transform .3s;
+}
+
+.propImages:hover {
+    transform: scale(1.02);
+    box-shadow: 2px 2px 4px 2px black;
+}
+
+#myimage {
+    border: 2px solid black;
+    height: 60vh;
+}
+
+.propLocation {
+    display: grid;
+    padding: 2em;
+    gap: 1em;
+    text-align: left;
+}
+
+.city,
+.area,
+.money {
+    border: 2px solid black;
+    border-radius: 10px;
+    display: flex;
+    width: max-content;
+    align-items: center;
+    justify-content: center;
+    padding: 2px 5px;
+}
+
+.iconSize {
+    height: 1.5em;
+}
+
+.propQuicks {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+}
+
+
+.propPageBtn{
+    background-color: red;
+    border: 2px solid red;
+}
+
+
+
+.facilities {
+    display: grid;
+    /* place-items: center; */
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    /* width: 1000px; */
+    margin: 5em ;
+    gap: 1em;
+    text-align: center;
+    /* border: 2px solid red; */
+}
+
+.facility {
+    border: 2px solid black;
+    border-radius: 10px;
+    display: flex;
+    padding: 10px 20px;
+    justify-content: center;
+    gap:1em;
+    text-align: center;
+    transition: transform .3s;
+}
+.facility:hover{
+    /* background-color: #333; */
+    background-color: #e3a33d;
+    /* color: white; */
+    transform: scaleY(1.2);
+}
+
+
+.facIcon {
+    height: 5em;
+}
+
+.facName {
+    font-size: 1.5em;
+}
+
+.detContainer {
+    margin: 2em 10em;
+    border: 2px solid black;
+    border-radius: 20px;
+    padding: 3em;
+    background-color: grey;
+}
+
+.details {
+    font-size: larger;
+    /* color: white; */
+}
+
+.reviewSection { 
+    display: grid;
+    margin: 2em 5em;
+}
+
+.reviewTitle {
+    font-size: 2em;
+}
+
+.reviews {
+    display: flex;
+    gap: 3em;
+    margin: 1em 4em;
+}
+
+.reviewCard {
+    border: 2px solid black;
+    padding: 1em 2em;
+    border-radius: 20px;
+}
+.tennet {}
+
+.tennetImage {}
+
+.tennetName {
+    font-size: 1.5em;
+}
+
+.review {}
+
+
+.address {}
+
+.mapContainer {
+    display: grid;
     place-items: center;
-    border: 2px dotted black;
 }
-.propImages{
-    height: 50vh;
+
+.map{
+    display: block;
 }
-#myimage{
-    max-width: 10em;
-    height: inherit;
-}
-.propLocation{}
-.city{}
-.area{}
-.money{}
-.propQuicks{}
-.bookNow{}
-.talkToOwner{}
-.facilities{}
-.facility{}
-.facIcon{}
-.facName{}
-.detContainer{}
-.details{}
-.reviewSection{}
-.reviewTitle{}
-.reviews{}
-.reviewCard{}
-.tennet{}
-.tennetImage{}
-.tennetName{}
-.review{}
-.mapContainer{}
-.address{}
-.map{}
+
+
+
+
+
+
+
+
+
+

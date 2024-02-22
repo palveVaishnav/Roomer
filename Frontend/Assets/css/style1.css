@@ -1,0 +1,78 @@
+
+.dashboard {
+    display: grid;
+    grid-template-columns: 3fr 5fr;
+}
+.userData,
+.previousData{
+    margin: 4em 2em;
+}
+.userData,
+.history,
+.reviews{
+    box-shadow: 4px 2px 10px 4px #333;
+    border-radius: 20px;
+    background-color: #c6a46e;
+}
+.main_page{
+    background-color: #3f3d3a;
+}
+
+.userImage{
+    text-align: center;
+    font-size: 2em;
+}
+
+.userImg{
+    transform: translateY(-2em);
+    width: 70%;
+    filter: drop-shadow(10px 10px 20px rgba(38, 33, 33, 0.5));
+}
+.userInfo{
+    padding: 0 2em;
+    font-size: 1.5em;
+    justify-content: center;
+}
+.infoIcon{
+    height: 35px;
+}
+.info{
+    align-items: center;
+    gap: 5px;
+    display: flex;
+}
+
+hr{
+    background-color: black;
+    color: black;
+}
+
+.userData:hover,
+.history:hover,
+.reviews:hover{
+    transform: translateY(-1em);
+    transition: transform 0.3s;
+}
+
+.previousData{
+    padding: 1em;
+    display: grid;
+    gap: 2em;
+}
+.history,
+.reviews{
+    padding: 1em 2em;
+}
+.previousDataTitle{
+    font-size: 2em;
+}
+.previousDataContent{
+    display: grid;
+    gap: auto;
+}
+.previousDataContent div{
+    /* border: 2px solid #333; */
+    margin: 20px;
+    padding: 5px;
+    border-radius: 5px;
+}
