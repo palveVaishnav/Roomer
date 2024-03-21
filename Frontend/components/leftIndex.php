@@ -12,31 +12,19 @@
 
     <div class="index" id="index">
         <ul class="menu-items">
-            <li class="menu-item">YOUR BOOKINGS</li>
+            <li class="menu-item">
+                <a href="./explore.php">EXPLORE</a>
+            </li>
             <li class="menu-item">
                 <a href="./profile.php">PROFILE</a>
             </li>
-            <hr>
+            <!-- <hr> -->
             <li class="menu-item">
                 <a href="./index.php">HOME</a>
             </li>
+
             <li class="menu-item">
-                <a href="booking.php">BOOK NOW </a>
-            </li>
-            <li class="menu-item">
-                <a href="offers.html">SPECIAL OFFERS</a>
-            </li>
-            <li class="menu-item">
-                <a href="rooms.html">ROOMS AND FLATS</a>
-            </li>
-            <li class="menu-item">
-                <a href="rooms.html">REVIEWS AND TESTIMONALS</a>
-            </li>
-            <li class="menu-item">
-                <a href="rooms.html">SPECIAL OFFERS</a>
-            </li>
-            <li class="menu-item">
-                <a href="rooms.html">CONTACT US</a>
+                <a href="about.php">CONTACT US</a>
             </li>
             <li class="menu-item">
                 <a href="about.php">ABOUT US</a>
@@ -45,13 +33,39 @@
         </ul>
     </div>
 
-    <div class="login_container" id="loginContainer">
-        <button class="home_button">
-            <a href="login.php">Login</a>
-        </button>
-        <button class="home_button">
-            <a href="signup.php">Sign Up</a>
-        </button>
-    </div>
+    <?php
+
+    session_start();
+    if (isset($_SESSION['userId'])) {
+        echo '
+                <div class="login_container" id="loginContainer">
+                    <button class="home_button">
+                        <a href="./logout.php"> 
+                            Logout
+                        </a>
+                    </button>
+                   
+                </div>
+            ';
+    } else {
+        echo '
+                <div class="login_container" id="loginContainer">
+                    <button class="home_button">
+                        <a href="login.php">Login</a>
+                    </button>
+                    <button class="home_button">
+                        <a href="signup.php">Sign Up</a>
+                    </button>
+                </div>
+                ';
+    }
+
+    ?>
+    <button class="home_button" style="position: absolute;">
+        <a href="./admin.php">
+            Admin Login
+        </a>
+    </button>
+
 
 </div>

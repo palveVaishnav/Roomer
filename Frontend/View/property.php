@@ -7,48 +7,125 @@
     <title>Roomer-Home</title>
     <link rel="stylesheet" href="../Assets/css/reusable.css">
     <link rel="stylesheet" href="../Assets/css/style.css">
-    <link rel="stylesheet" href="../Assets/css/property.css">
-    <script src="../Assets/Script/magnifier.js"></script>
+    <link rel="stylesheet" href="../Assets/css/propPage.css">
 </head>
 
 <body>
     <!-- Left Menu Section -->
     <?php
-        require_once('../components/leftIndex.php');
+    require_once('../components/leftIndex.php');
+    // Get all the dada 
+    // get the id from the index.php page
+    require_once('propRender.php');
+
     ?>
+
 
     <!-- Right Hero Section -->
     <div class="main_page">
-        
-        <?php
-            require_once('./propertyOld.php');
-        ?>
+        <div class="propLander">
+            <?php require_once('lander.php'); ?>
+        </div>
 
+        <!-- Prop Lander -->
+        <div class="propText">
+            <?php 
+                echo '
+                    <div class="address">
 
-        <!-- <iframe width="600" height="450" style="border:0" loading="lazy" allowfullscreen
-            referrerpolicy="no-referrer-when-downgrade"
-            src="https://www.google.com/maps/place/Jalna">
-            
-        </iframe> -->
+                        <div style="display:flex;justify-content:left;text-align:left;margin:0 1em;padding:10px;">
+                            <img src="../Assets/icons/amount.png" alt="" style="height:1.5em;margin:0 10px;" />
+                            
+                            <div>  Rent:   ' . $p_prize . ' </div>
+                        </div>
 
+                        <div style="display:flex;justify-content:left;margin:0 1em;padding:10px;">
+                            <img src="../Assets/icons/city.png" alt="" style="height:1.5em;margin:0 10px;" />
+                            <div> Location :   ' . $p_area . ' , ' . $p_city . '. </div>
+                        </div>
+                     
+                     </div>
+                    <div class="quickLinks">
+                        <a href="https://earth.google.com/web/search/'.$p_area.'/'.$p_city.'" target="_blank">
+                            <button>
+                                Live Location
+                            </button>
+                        </a>
+                        <a href="./checkout.php?id='.$id.'">
+                            <button>
+                                Book Now
+                            </button>
+                        </a>
+                        <a href="./chat.php">
+                            <button>
+                                Talk to '.$l_name.'
+                            </button>
+                        </a>
 
+                    </div>
 
-        <!--The div element for the map -->
-        <!-- <div id="map"></div> -->
-        <!--         
-        <iframe width="600" height="450" style="border:0" loading="lazy" allowfullscreen
-            referrerpolicy="no-referrer-when-downgrade"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3780.563675231219!2d73.81782281443088!3d18.522687887401368!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bfe9da4d0163%3A0x3a09d094291176a7!2sGokhale%20Nagar%2C%20Pune%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1645480522783!5m2!1sen!2sin">
-        </iframe> -->
+                ';
+            ?>
 
+        </div>
+        <p class="facTitle">
+            Facilities Provided :
+        </p>
+        <div class="facilities">
+            <div class="facility card">
+                <img src="../Assets/icons/rating.png" alt="" class="facIcon">
+                <h3 class="facName">'
+                    <?php echo $p_rating; ?> /5
+                </h3>
+            </div>
+            <div class="facility card">
+                <!-- Not in database -->
+                <img src="../Assets/icons/ac.png" alt="" class="facIcon">
+                <h3 class="facName"> <?php echo $p_ac; ?> </h3>
+            </div>
+            <div class="facility card">
+                <img src="../Assets/icons/food.png" alt="" class="facIcon">
+                <h3 class="facName">
+                    <?php echo $p_food ?>
+                </h3>
+            </div>
+            <div class="facility card">
+                <img src="../Assets/icons/parking.png" alt="" class="facIcon">
+                <h3 class="facName">
+                    <?php echo $p_parking ?>
+                </h3>
+            </div>
+            <div class="facility card">
+                <!-- Not in database -->
+                <img src="../Assets/icons/type.png" alt="" class="facIcon">
+                <h3 class="facName">
+                    <?php echo $p_type ?>
+                </h3>
+            </div>
+            <div class="facility card">
+                <img src="../Assets/icons/wifi.png" alt="" class="facIcon">
+                <h3 class="facName">
+                    <?php echo $p_wifi ?>
+                </h3>
+            </div>
+            <div class="facility card">
+                <img src="../Assets/icons/gender.png" alt="" class="facIcon">
+                <h3 class="facName">
+                    <?php echo $p_gender ?>
+                </h3>
+            </div>
+            <div class="facility card">
+                <img src="../Assets/icons/furniture.png" alt="" class="facIcon">
+                <h3 class="facName"> <?php echo $p_furnished ?> </h3>
+            </div>
+        </div>
 
-        <!--Add a script by google -->
-        <!-- <script
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAR5bOmLfTAeCuCMozBHnCFQQTrsBB3d0c&callback=initMap&libraries=&v=weekly"
-            async>
-            </script> -->
-
-
+        <div class="detContainer">
+            <h2>About the Property :</h2>
+            <div class="details">
+                <?php echo $p_details ?>
+            </div>
+        </div>
     </div>
     <!-- main_page -->
 

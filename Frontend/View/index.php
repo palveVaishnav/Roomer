@@ -75,7 +75,7 @@
         <!--  End Lander Section -->
         <?php
             require_once('./homeRender.php');
-            $userId = sessionStorage.getItem('userId');
+            // $userId = sessionStorage.getItem('userId');
             
         ?>
         <!-- Room Cards and Details  -->

@@ -6,8 +6,8 @@ if (!$result) {
     echo "<h1> Connected but unable to render the data </h1>";
 }
 
-
 while ($row = pg_fetch_assoc($result)) {
+    $p_booked = $row['p_booked'];
     $p_id = $row['p_id'];
     $p_city = $row['p_city'];
     $p_area = $row['p_area'];
@@ -20,7 +20,16 @@ while ($row = pg_fetch_assoc($result)) {
     $p_wifi = ($row['p_wifi'] == 'yes') ? 'Available' : 'Not Available';
     $p_availability = $row['p_availability'];
     $p_owner = $row['p_owner'];
-    $p_image = $row['p_image'];
+    // $p_image = $row['p_image'];
+    // $images=explode(',',$p_image);
+    $p_image_string = $row['p_image'];
+    // Remove the surrounding braces
+    $p_image_string = trim($p_image_string, '{}');
+    // Split the string into an array using the comma as a delimiter
+    $p_image_array = explode(',', $p_image_string);
+    // Now $p_image_array contains the individual elements
+    // Accessing the first element
+    $firstimage = $p_image_array[0];
 
     $secondQuery = "SELECT lord_name FROM LANDLORD WHERE lord_id = $p_owner";
     $secondResult = pg_query($conn, $secondQuery);
@@ -28,51 +37,51 @@ while ($row = pg_fetch_assoc($result)) {
     if ($row = pg_fetch_assoc($secondResult)) {
         $name = $row['lord_name'];
     }
-
-    echo '
-<div class="rooms_container" id="roomsContainer">
-    <div class="rooms" id="rooms">
-        <!-- Room Card 1-->
-        <div class="room_card " id="roomCard">
-            <!-- Room Image  -->
-            <section class="image_section">
-                <img class="room_image" src="../' . $p_image . '" alt="Room-01">
-            </section>
-            <!-- Room Details  -->
-            <section class="text_section">
-                <!-- Details of the room  -->
-                <div class="room_location">
-                    <h5 class="area" id="area">' . $p_city . ' > ' . $p_area . '</h5>
+    if($p_booked == 'no'){
+        echo '
+        <div class="rooms_container" id="roomsContainer">
+            <div class="rooms" id="rooms">
+                <!-- Room Card 1-->
+                <div class="room_card " id="roomCard">
+                    <!-- Room Image  -->
+                    <section class="image_section">
+                        <img class="room_image" src="../' . $firstimage . '" alt="Room-01">
+                    </section>
+                    <!-- Room Details  -->
+                    <section class="text_section">
+                        <!-- Details of the room  -->
+                        <div class="room_location">
+                            <h5 class="area" id="area">' . $p_city . ' > ' . $p_area . '</h5>
+                        </div>
+                        <div class="room_details">
+                            <h2 class="room_prize" id="roomPrize">' . $p_description . '</h2>
+                            <h3 class="room_type" id="roomType">' . $p_type . '</h3>
+                        </div>
+                        <div class="room_facilities">
+                            <article class="facility">Ratings : ' . $p_rating . '/5</article>
+                            <article class="facility" id="roomGender"> Gender : ' . $p_gender . '</article>
+                            <article class="facility" id="roomType">Type : ' . $p_type . '</article>
+                            <article class="facility"> Food : ' . $p_food . '</article>
+                            <article class="facility">Parking : ' . $p_parking . '</article>
+                            <article class="facility">Wifi : ' . $p_wifi . '</article>
+                            <article class="facility" id="availability"> With in : ' . $p_availability . ' days</article>
+                        </div>
+                        <hr class="white">
+                        <div class="more_details">
+                            <button class="home_button">
+                                <a href="./property.php?id=' . $p_id . '">More Details</a>
+                            </button>
+                            <button class="home_button">
+                                <a href="./checkout.php?id=' . $p_id . '">Book now </a> 
+                            </button>
+                            <button class="home_button">
+                                <a href="./chat.php" id="' . $p_owner . '"> Talk to ' . $name . '</a>
+                            </button>
+                        </div>
+                    </section>
                 </div>
-                <div class="room_details">
-                    <h2 class="room_prize" id="roomPrize">' . $p_description . '</h2>
-                    <h3 class="room_type" id="roomType">' . $p_type . '</h3>
-                </div>
-                <div class="room_facilities">
-                    <article class="facility">Ratings : ' . $p_rating . '/5</article>
-                    <article class="facility" id="roomGender"> Gender : ' . $p_gender . '</article>
-                    <article class="facility" id="roomType">Type : ' . $p_type . '</article>
-                    <article class="facility"> Food : ' . $p_food . '</article>
-                    <article class="facility">Parking : ' . $p_parking . '</article>
-                    <article class="facility">Wifi : ' . $p_wifi . '</article>
-                    <article class="facility" id="availability"> With in : ' . $p_availability . ' days</article>
-                </div>
-                <hr class="white">
-                <div class="more_details">
-                    <button class="home_button">
-                        <a href="./property.php?id=' . $p_id . '">More Details</a>
-                    </button>
-                    <button class="home_button">
-                        <a href="./checkout.php?id='.$p_id.'">Book now </a> 
-                    </button>
-                    <button class="home_button">
-                        <a href="./chat.php" id="' . $p_owner . '"> Talk to ' . $name . '</a>
-                    </button>
-                </div>
-            </section>
-        </div>
-    </div>
-</div>';
+            </div>
+        </div>';
+    }
 }
-
 ?>

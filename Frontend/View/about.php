@@ -35,30 +35,12 @@
         <!-- Lander Ends Here -->
 
 
-        <!-- Third -->
-        <div class="whoAreWe">
-            <div class="weImage">
-                <img src="../Assets/images/devTeam.jpg" alt="Image">
-            </div>
-            <div class="weText">
-                <h3 class="weTitle"> Who Are We</h3>
-                <p class="weDescription">
-                    At _RooMER, we are more than just a housing platform;
-                    we are a community that understands the importance
-                    of finding a space that feels like home.
-                    Whether you're a student, a professional, or a traveler, we
-                    have the ideal place for you.
-                </p>
-            </div>
-        </div>
 
-        
-        <!-- Second -->
         <div class="missionContainer">
             <!-- 3 Cards  -->
-            <div class="missionTitle">
+            <!-- <div class="missionTitle">
                 <h3>Our Mission</h3>
-            </div>
+            </div> -->
             <div class="missionCards">
                 <div class="missionCard cardOne">
                     <h2 class="cardTitle">Easy Searching </h2>
@@ -95,6 +77,27 @@
         </div>
         <!-- Mission  -->
 
+
+        <!-- Third -->
+        <div class="whoAreWe">
+            <div class="weImage">
+                <img src="../Assets/images/devTeam.jpg" alt="Image">
+            </div>
+            <div class="weText">
+                <h3 class="weTitle"> Who Are We</h3>
+                <p class="weDescription">
+                    At _RooMER, we are more than just a housing platform;
+                    we are a community that understands the importance
+                    of finding a space that feels like home.
+                    Whether you're a student, a professional, or a traveler, we
+                    have the ideal place for you.
+                </p>
+            </div>
+        </div>
+
+        
+        <!-- Second -->
+        
 
         <!-- Fourth -->
         <div class="team">

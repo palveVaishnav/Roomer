@@ -1,0 +1,130 @@
+.main_page {}
+
+.propLander {
+    height: max-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+}
+
+.iconSize {
+    height: 1.5em;
+}
+
+
+.facilities {
+    display: grid;
+    /* place-items: center; */
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    /* width: 1000px; */
+    margin: 5em;
+    gap: 1em;
+    text-align: center;
+    /* border: 2px solid red; */
+}
+.facTitle{
+    font-size: 2.3em;
+}
+
+.facility {
+    border: 2px solid black;
+    border-radius: 10px;
+    display: flex;
+    padding: 10px 20px;
+    justify-content: center;
+    gap: 1em;
+    text-align: center;
+    transition: transform .3s;
+}
+
+.facility:hover {
+    border: 2px solid #e3a33d;
+    background-color: #333;
+    color:aliceblue;
+    transform: scaleY(1.2);
+}
+
+
+.facIcon {
+    height: 5em;
+}
+
+.facName {
+    font-size: 1.5em;
+}
+
+.detContainer {
+    background-color: #333;
+    color: white;
+    margin: 2em;
+    padding: 3em;
+    border: 2px solid black;
+    border-radius: 20px;
+}
+
+.detContainer h2{
+    font-size: 2em;
+}
+
+.details {
+    font-size: larger;
+    padding: 0 10em;
+    font-size: 1.5em;
+}
+
+.reviewSection {
+    display: grid;
+    margin: 2em 5em;
+}
+
+.reviewTitle {
+    font-size: 2em;
+}
+
+.reviews {
+    display: flex;
+    gap: 3em;
+    margin: 1em 4em;
+}
+
+.reviewCard {
+    border: 2px solid black;
+    padding: 1em 2em;
+    border-radius: 20px;
+}
+
+.tennet {}
+
+.tennetImage {}
+
+.tennetName {
+    font-size: 1.5em;
+}
+
+.propText{
+    display: grid;
+    gap: 1em;
+    padding: 2em;
+    background-color: #333;
+    margin: 4em 2em;
+    border: 2px solid black;
+    border-radius: 5px;
+    justify-content: center;
+}
+
+.address{
+    border: 2px solid grey;
+    gap: 1em;
+    color: white;
+    padding: 1em 1.5em;
+    justify-content: center;
+    text-align: left;
+    font-size: 1.5em;
+}
+
+
+.quickLinks {
+    display: flex;
+    gap: 2em;
+}

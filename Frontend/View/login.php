@@ -17,7 +17,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $row = pg_fetch_assoc($result);
     if ($row) {
-        session_start();
         $userId = $row["t_id"];
         $_SESSION['userId'] = $userId;
         header("Location: index.php"); // Redirect to the dashboard page after successful login
