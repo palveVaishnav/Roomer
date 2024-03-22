@@ -1,5 +1,5 @@
 body{
-    height: 100vh;
+    min-height: 100vh;
     background-color: #333;
 }
 
@@ -14,10 +14,13 @@ body{
 }
 .userData,
 .history,
-.reviews{
+.reviewCard{
     box-shadow: 5px 7px 11px 3px #d0cbcb78;
     border-radius: 20px;
     background-color: #c6a46e;
+}
+.history{
+    padding: 20px;
 }
 .main_page{
     background-color: #3f3d3a;
@@ -60,13 +63,9 @@ hr{
 }
 
 .previousData{
-    padding: 1em;
+    /* padding: 1em; */
     display: grid;
     gap: 2em;
-}
-.history,
-.reviews{
-    padding: 1em 2em;
 }
 .previousDataTitle{
     font-size: 2em;
@@ -76,8 +75,27 @@ hr{
     gap: auto;
 }
 .previousDataContent div{
-    /* border: 2px solid #333; */
     margin: 20px;
     padding: 5px;
     border-radius: 5px;
+}
+
+.reviewCard {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid ;
+    background-color: #333;
+    color: white;
+    box-shadow: 5px 7px 11px 3px #d0cbcb78;
+    border-radius: 30px;
+}
+
+.theReview,
+.roomDetails {
+    flex: 1; /* Equal distribution of height */
+}
+.roomDetails{
+    background-color: #333;
+    color: #fff;
+    padding: 1em;
 }

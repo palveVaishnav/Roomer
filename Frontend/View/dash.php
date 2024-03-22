@@ -29,17 +29,33 @@
         tr {
             border: 2px solid red;
         }
+
         .accept,
-        .deny{
+        .deny {
             padding: 5px 10px;
             border: 2px solid black;
         }
-        .accept{
+
+        .accept {
             background-color: #37d03b;
             color: #333;
         }
-        .deny{
+
+        .deny {
             background-color: red;
+        }
+
+        .property,
+        .history,
+        .admin,
+        .landlord,
+        .tenant {
+            display: none;
+        }
+
+        .displayTable {
+            display: flex;
+            justify-content: space-between;
         }
     </style>
 </head>
@@ -47,6 +63,21 @@
 <body>
     <?php
     require_once ('../components/leftIndex.php');
+    function updateBookingStatus($conn, $t_id, $p_id, $status)
+    {
+        $query = "UPDATE bookings SET status = $1 WHERE t_id = $2 AND p_id = $3";
+        $params = array($status, $t_id, $p_id);
+        $result = pg_query_params($conn, $query, $params);
+        if ($result) {
+            // Update the p_booked column for the given id
+            $query = "UPDATE property SET p_booked='pen' WHERE p_id=$1";
+            $result = pg_query_params($conn, $query, array($p_id));
+            if($result){
+                @header("Location: ./dash.php");
+                exit();
+            }
+        }
+    }
     ?>
 
     <!-- Right Hero Section -->
@@ -61,85 +92,116 @@
             header("Location: admin.php");
             exit();
         }
-        // Execute SQL queries to retrieve data
-        $result_admin = pg_query($conn, "SELECT * FROM ADMIN");
-        $result_landlord = pg_query($conn, "SELECT * FROM LANDLORD");
-        $result_history = pg_query($conn, "SELECT * FROM HISTORY");
-        $result_property = pg_query($conn, "SELECT * FROM PROPERTY");
-        $result_tenant = pg_query($conn, "SELECT * FROM TENANT");
-
-        $result_bookings = pg_query($conn, "SELECT * FROM bookings");
-
-
         ?>
 
-        <h2>Booking Requests </h2>
+
+        <br>
+        <div class="displayTable">
+            <button onclick="toggleElement('requestTable')">Booking Requests</button>
+            <button onclick="toggleElement('admin')">Admin</button>
+            <button onclick="toggleElement('landlord')">Landlord</button>
+            <button onclick="toggleElement('property')">Property</button>
+            <button onclick="toggleElement('tenant')">Tenant</button>
+        </div>
+        <br>
+        <hr>
+
+
+        <script>
+            function toggleElement(className) {
+                var element = document.querySelector('.' + className);
+                if (element.style.display === 'none') {
+                    element.style.display = 'block';
+                } else {
+                    element.style.display = 'none';
+                }
+            }
+        </script>
+
+
+
+
+
+
+
+
+        <!-- <h2>Booking Requests</h2> -->
         <div class="request">
-            <table>
+            <table class="requestTable">
                 <tr>
-                    <th>Sender</th>
-                    <th>Property</th>
+                    <th>Sender Name</th>
+                    <th>Property Id</th>
                     <th>Accept</th>
                     <th>Deny</th>
                 </tr>
 
-
-
                 <?php
-
+                // Execute SQL queries to retrieve data
+                $result_bookings = pg_query($conn, "SELECT * FROM bookings");
                 while ($row = pg_fetch_assoc($result_bookings)) {
                     if ($row['status'] == "pending") {
+                        $tid = $row['t_id'];
+                        $nameQuery = "SELECT t_name FROM tenant WHERE t_id= $tid";
+                        $tName = pg_query($conn,$nameQuery);
+                        if($tName){
+                            $rowname = pg_fetch_assoc($tName);
+                            if($rowname){
+                                $theName = $rowname['t_name'];
+                            }
+                        }
                         echo "<tr>";
-                        echo "<td>" . $row['t_id'] . "</td>";
+                        echo "<td>" . $theName . "</td>";
                         echo "<td>" . $row['p_id'] . "</td>";
                         echo "<td>
-                                <button class='accept'>Approve</button>
-                        </td>";
+                                <form action='' method='post'>
+                                    <input type='hidden' name='t_id' value='" . $row['t_id'] . "'>
+                                    <input type='hidden' name='p_id' value='" . $row['p_id'] . "'>
+                                    <input type='hidden' name='status' value='booked'>
+                                    <button type='submit' class='accept'>Approve</button>
+                                </form>
+                              </td>";
                         echo "<td>
-                                <button class='deny'
-                                    onclick= (){
-                                        window.alert('Hello');
-                                    }
-                                >Deny</button>
-                        </td>";
+                                <form action='' method='post'>
+                                    <input type='hidden' name='t_id' value='" . $row['t_id'] . "'>
+                                    <input type='hidden' name='p_id' value='" . $row['p_id'] . "'>
+                                    <input type='hidden' name='status' value='denied'>
+                                    <button type='submit' class='deny'>Deny</button>
+                                </form>
+                              </td>";
                         echo "</tr>";
                     }
                 }
 
                 ?>
+                <?php
+                // Function to update booking status
+                if ($_SERVER['REQUEST_METHOD'] == "POST") {
+                    $t_id = $_POST['t_id'];
+                    $p_id = $_POST['p_id'];
+                    $status = $_POST['status'];
+                    updateBookingStatus($conn, $t_id, $p_id, $status);
+                }
+                ?>
             </table>
         </div>
-        <table>
-            <tr>
-                <th>Sender</th>
-                <th>Property</th>
-                <th>Status</th>
-            </tr>
+        <!-- Request Table Ended -->
+        <?php
+        $result_admin = pg_query($conn, "SELECT * FROM ADMIN");
+        $result_landlord = pg_query($conn, "SELECT * FROM LANDLORD");
+        // $result_history = pg_query($conn, "SELECT * FROM HISTORY");
+        $result_property = pg_query($conn, "SELECT * FROM PROPERTY");
+        $result_tenant = pg_query($conn, "SELECT * FROM TENANT");
 
-            <?php
-            $query1 = pg_query("SELECT * FROM bookings;");
-            while ($row = pg_fetch_assoc($query1)) {
-                echo "<tr>";
-                echo "<td>" . $row['t_id'] . "</td>";
-                echo "<td>" . $row['p_id'] . "</td>";
-                echo "<td>" . $row['status'] . "</td>";
-                echo "</tr>";
-            }
-            ?>
-        </table>
+        ?>
+
+        <script>
+
+        </script>
 
         <?php
-
-
-
-
-
-
-
-
         // Admin Details
-        echo "<h2>Admin Details</h2>";
-        echo "<table>
+        // echo "<h2>Admin Details</h2>";
+        echo "<table class='admin'>
 <tr>
 <th>Admin ID</th>
 <th>Admin Password</th>
@@ -154,8 +216,8 @@
         echo "</table>";
 
         // Landlord Details
-        echo "<h2>Landlord Details</h2>";
-        echo "<table>
+        // echo "<h2>Landlord Details</h2>";
+        echo "<table class='landlord'>
 <tr>
 <th>Landlord ID</th>
 <th>Landlord Name</th>
@@ -174,8 +236,8 @@
 
 
         // Property Details
-        echo "<h2>Property Details</h2>";
-        echo "<table>
+        // echo "<h2>Property Details</h2>";
+        echo "<table class='property'>
 <tr>
 <th>Property ID</th>
 <th>Booked</th>
@@ -220,8 +282,8 @@
         echo "</table>";
 
         // Tenant Details
-        echo "<h2>Tenant Details</h2>";
-        echo "<table>
+        // echo "<h2>Tenant Details</h2>";
+        echo "<table class='tenant'>
 <tr>
 <th>Tenant ID</th>
 <th>Email</th>
@@ -245,8 +307,9 @@
 
 
         // History Details
-        echo "<h2>History Details</h2>";
-        echo "<table>
+        // echo "<h2>History Details</h2>";
+        /*
+        echo "<table class='history'>
             <tr>
                 <th>History ID</th>
                 <th>Tenant ID</th>
@@ -268,8 +331,27 @@
         }
         echo "
         </table>";
+        */
 
         ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     </div>
 </body>
 

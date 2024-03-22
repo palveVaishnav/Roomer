@@ -40,12 +40,17 @@
         echo '
                 <div class="login_container" id="loginContainer">
                     <button class="home_button">
+                        <a href="./profile.php"> 
+                            View Profile
+                        </a>
+                    </button>
+                    <button class="home_button">
                         <a href="./logout.php"> 
                             Logout
                         </a>
                     </button>
-                   
                 </div>
+            
             ';
     } else {
         echo '
@@ -63,7 +68,7 @@
     ?>
     <button class="home_button" style="position: absolute;">
         <a href="./admin.php">
-            Admin Login
+            Admin
         </a>
     </button>
 

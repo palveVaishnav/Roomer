@@ -55,7 +55,7 @@ function notAvailable($firstimage, $p_city, $p_area, $p_description, $p_type, $p
                     <!-- Room Image  -->
                     <section class="image_section">
                         <div class="image_container" style="display:grid;place-items:center">
-                            <img class="room_image" src="../' . $firstimage . '" alt="Room-01">
+                            <!--<img class="room_image" src="../' . $firstimage . '" alt="Room-01">-->
                             <h1 class="image_text">Already Booked</h1>
                         </div>
                     </section>

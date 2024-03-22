@@ -112,19 +112,18 @@ CREATE TABLE HISTORY (
     rating INT
 );
 
-/*
-INSERT INTO HISTORY VALUES (301, 01, 101, 'Good owner behavior', 10, 4);
-INSERT INTO HISTORY VALUES (302, 02, 102, 'No water supply', 6, 3);
-INSERT INTO HISTORY VALUES (303, 03, 103, 'It is better than my previous room.', 12, 5);
-INSERT INTO HISTORY VALUES (304, 04, 104, 'Bad', 3, 2);
-INSERT INTO HISTORY VALUES (305, 05, 105, 'Worst', 2, 1);
-*/
 
 SELECT * FROM admin;
 
 SELECT * FROM landlord;
 SELECT * FROM history;
 SELECT * FROM property;
-
 SELECT * FROM property;
 SELECT * FROM tenant;
+
+DROP TABLE IF EXISTS bookings;
+CREATE TABLE bookings (
+    t_id INT REFERENCES TENANT(t_id) ON DELETE CASCADE,
+    p_id INT REFERENCES PROPERTY(p_id) ON DELETE CASCADE,
+    status VARCHAR(20)
+);

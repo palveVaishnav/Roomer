@@ -73,26 +73,6 @@
     font-size: 1.5em;
 }
 
-.reviewSection {
-    display: grid;
-    margin: 2em 5em;
-}
-
-.reviewTitle {
-    font-size: 2em;
-}
-
-.reviews {
-    display: flex;
-    gap: 3em;
-    margin: 1em 4em;
-}
-
-.reviewCard {
-    border: 2px solid black;
-    padding: 1em 2em;
-    border-radius: 20px;
-}
 
 .tennet {}
 
@@ -127,4 +107,35 @@
 .quickLinks {
     display: flex;
     gap: 2em;
+}
+
+
+/* Adding Reviews  */
+.history{
+    display: block;
+    /* border: 2px solid red; */
+}
+.previousDataTitle{
+    font-size: 2em;
+    font: bold;
+
+}
+.reviewContainer{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    height: auto;
+}
+
+.reviewCard{
+    border: 2px solid #333;
+    border-radius: 1em;
+    margin: 1em;
+    padding: 1em;
+}
+
+.reviewCard:hover{
+    transform: translateY(-1em);
+    transition: transform 0.3s;
+    background-color: #333;
+    color: #fff;
 }

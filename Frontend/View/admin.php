@@ -2,7 +2,9 @@
 session_start();
 
 require_once('pgConfig.php');
-
+if(isset($_SESSION['admin_id'])){
+    header("Location: dash.php");
+}
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $admin_id = $_POST["admin_id"];
     $admin_pass = $_POST["admin_pass"];
@@ -18,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $row = pg_fetch_assoc($result);
     if ($row) {
         $_SESSION['admin_id'] = $row["admin_id"];
-        header("Location: dashboard.php"); // Redirect to the dashboard page after successful login
+        header("Location: dash.php"); // Redirect to the dashboard page after successful login
         exit;
     } else {
         echo '<p>Invalid Credentials</p>';
