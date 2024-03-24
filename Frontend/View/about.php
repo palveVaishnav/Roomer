@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Roomer-Home</title>
+    <title>About</title>
     <link rel="stylesheet" href="../Assets/css/reusable.css">
     <link rel="stylesheet" href="../Assets/css/style.css">
     <link rel="stylesheet" href="../Assets/css/about.css">
