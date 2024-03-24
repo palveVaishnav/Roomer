@@ -47,7 +47,7 @@
             $name = $row['t_name'];
             $email = $row['t_email'];
             $verified = $row['t_verified'];
-            $hId = $row['t_history'];
+
         }
         echo '
             <!-- Right Hero Section -->
@@ -89,7 +89,8 @@
                 <div class="previousDataTitle">About</div>
                 <hr>
                 <div class="previousDataContent">
-                    <h4>Passionate traveler and avid photographer, exploring diverse cultures and capturing moments around the globe. Nature lover, food enthusiast, always seeking new adventures.</h4>
+                    <h4>Passionate traveler and avid photographer, exploring diverse cultures and capturing moments around
+                        the globe. Nature lover, food enthusiast, always seeking new adventures.</h4>
                 </div>
             </div>
             <div class="history">
@@ -101,7 +102,7 @@
                         <div class="reviewCard">
                             <div class="theReview">
                                 <h3>The room was amazing. The bed was comfortable, and the view from the window was
-                                breathtaking. </h3>
+                                    breathtaking. </h3>
                             </div>
                             <div class="roomDetails">
                                 <h3>Date:</h3> January 15, 2024<br>
@@ -111,7 +112,7 @@
                         <div class="reviewCard">
                             <div class="theReview">
                                 <h3>I had a pleasant stay in this room. The amenities were great, and the location was
-                                convenient.</h3>
+                                    convenient.</h3>
                             </div>
                             <div class="roomDetails">
                                 <h3>Date:</h3> May 10, 2024<br>
@@ -126,15 +127,62 @@
             <!-- About Ends Here -->
 
         </div>
-    </div>
+        </div>
 
-    <div class="history">
-        
-    </div>
+        <div class="history">
+            <div class="previousDataTitle">Your Bookings</div>
+            <hr>
+            <?php
+            require_once ('./roomCard.php');
+            $query = "SELECT * FROM bookings WHERE t_id = $1 AND status='booked';";
+            $result = pg_query_params($conn, $query, array($userId));
+            if (!$result) {
+                echo "<h1>Bookings Not Found</h1>";
+                exit;
+            }
+            while ($row = pg_fetch_assoc($result)) {
+                $pid = $row['p_id'];
+                $Propertyquery = "SELECT * FROM property WHERE p_id = $pid;";
+                $Propertyresult = pg_query($conn, $Propertyquery);
+                while ($row = pg_fetch_assoc($Propertyresult)) {
+                    $p_booked = $row['p_booked'];
+                    $p_id = $row['p_id'];
+                    $p_city = $row['p_city'];
+                    $p_area = $row['p_area'];
+                    $p_description = $row['p_description'];
+                    $p_type = $row['p_type'];
+                    $p_rating = $row['p_rating'];
+                    $p_gender = $row['p_gender'];
+                    $p_food = ($row['p_food'] == 'yes') ? 'Available' : 'Not Available';
+                    $p_parking = ($row['p_parking'] == 'yes') ? 'Available' : 'Not Available';
+                    $p_wifi = ($row['p_wifi'] == 'yes') ? 'Available' : 'Not Available';
+                    $p_availability = $row['p_availability'];
+                    $p_owner = $row['p_owner'];
+                    // $p_image = $row['p_image'];
+                    // $images=explode(',',$p_image);
+                    $p_image_string = $row['p_image'];
+                    // Remove the surrounding braces
+                    $p_image_string = trim($p_image_string, '{}');
+                    // Split the string into an array using the comma as a delimiter
+                    $p_image_array = explode(',', $p_image_string);
+                    // Now $p_image_array contains the individual elements
+                    // Accessing the first element
+                    $firstimage = $p_image_array[0];
 
+                    $secondQuery = "SELECT lord_name FROM LANDLORD WHERE lord_id = $p_owner";
+                    $secondResult = pg_query($conn, $secondQuery);
+                    $name = '';
+                    if ($row = pg_fetch_assoc($secondResult)) {
+                        $name = $row['lord_name'];
+                    }
+                    profileCard($firstimage, $p_city, $p_area, $p_description, $p_type, $p_rating, $p_gender, $p_food, $p_parking, $p_wifi, $p_availability, $p_id, $p_owner, $name);
+                }
 
+            }
 
+            ?>
 
+        </div>
 
         <?php
         echo '

@@ -49,6 +49,7 @@
         .history,
         .admin,
         .landlord,
+        .bookings,
         .tenant {
             display: none;
         }
@@ -70,11 +71,14 @@
         $result = pg_query_params($conn, $query, $params);
         if ($result) {
             // Update the p_booked column for the given id
-            $query = "UPDATE property SET p_booked='pen' WHERE p_id=$1";
+            if($status == "booked"){
+	            $query = "UPDATE property SET p_booked='yes' WHERE p_id=$1";
+            }else{
+            	$query = "UPDATE property SET p_booked='no' WHERE p_id=$1";
+            }
             $result = pg_query_params($conn, $query, array($p_id));
             if($result){
                 @header("Location: ./dash.php");
-                exit();
             }
         }
     }
@@ -98,10 +102,11 @@
         <br>
         <div class="displayTable">
             <button onclick="toggleElement('requestTable')">Booking Requests</button>
-            <button onclick="toggleElement('admin')">Admin</button>
-            <button onclick="toggleElement('landlord')">Landlord</button>
+            <button onclick="toggleElement('bookings')">All Bookings</button>
             <button onclick="toggleElement('property')">Property</button>
             <button onclick="toggleElement('tenant')">Tenant</button>
+            <button onclick="toggleElement('landlord')">Landlord</button>
+            <button onclick="toggleElement('admin')">Admin</button>
         </div>
         <br>
         <hr>
@@ -131,13 +136,14 @@
                 <tr>
                     <th>Sender Name</th>
                     <th>Property Id</th>
+                    <th>Amount Paid</th>
                     <th>Accept</th>
                     <th>Deny</th>
                 </tr>
 
                 <?php
                 // Execute SQL queries to retrieve data
-                $result_bookings = pg_query($conn, "SELECT * FROM bookings");
+                $result_bookings = pg_query($conn, "SELECT * FROM bookings ");
                 while ($row = pg_fetch_assoc($result_bookings)) {
                     if ($row['status'] == "pending") {
                         $tid = $row['t_id'];
@@ -149,9 +155,20 @@
                                 $theName = $rowname['t_name'];
                             }
                         }
+                        $prizeid = $row['p_id'];
+                        $nameQuery = "SELECT p_prize FROM property WHERE p_id= $prizeid";
+                        $prize = pg_query($conn,$nameQuery);
+                        if($prize){
+                            $rowname = pg_fetch_assoc($prize);
+                            if($rowname){
+                                $thePrize = $rowname['p_prize'];
+                            }
+                        }
+
                         echo "<tr>";
                         echo "<td>" . $theName . "</td>";
                         echo "<td>" . $row['p_id'] . "</td>";
+                        echo "<td>" . $thePrize . "</td>";
                         echo "<td>
                                 <form action='' method='post'>
                                     <input type='hidden' name='t_id' value='" . $row['t_id'] . "'>
@@ -185,10 +202,68 @@
             </table>
         </div>
         <!-- Request Table Ended -->
+
+        <!-- Booking History -->
+        <div class="bookings">
+            <table class="requestTable">
+                <tr>
+                    <th>Tenant Name</th>
+                    <th>Property Id</th>
+                    <th>Amount Paid</th>
+                    <th>Status</th>
+                </tr>
+
+                <?php
+                // Execute SQL queries to retrieve data
+                $result_bookings = pg_query($conn, "SELECT * FROM bookings ");
+                while ($row = pg_fetch_assoc($result_bookings)) {
+                    if ($row['status'] == "booked" || $row['status'] == "denied" ) {
+                        $tid = $row['t_id'];
+                        $nameQuery = "SELECT t_name FROM tenant WHERE t_id= $tid";
+                        $tName = pg_query($conn,$nameQuery);
+                        if($tName){
+                            $rowname = pg_fetch_assoc($tName);
+                            if($rowname){
+                                $theName = $rowname['t_name'];
+                            }
+                        }
+                        $prizeid = $row['p_id'];
+                        $nameQuery = "SELECT p_prize FROM property WHERE p_id= $prizeid";
+                        $prize = pg_query($conn,$nameQuery);
+                        if($prize){
+                            $rowname = pg_fetch_assoc($prize);
+                            if($rowname){
+                                $thePrize = $rowname['p_prize'];
+                            }
+                        }
+
+                        echo "<tr>";
+                        echo "<td>" . $theName . "</td>";
+                        echo "<td>" . $row['p_id'] . "</td>";
+                        echo "<td>" . $thePrize . "</td>";
+                        echo "<td>"  . $row['status'] ."</td>";
+                        echo "</tr>";
+                    }
+                }
+                ?>
+            </table>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
         <?php
         $result_admin = pg_query($conn, "SELECT * FROM ADMIN");
         $result_landlord = pg_query($conn, "SELECT * FROM LANDLORD");
-        // $result_history = pg_query($conn, "SELECT * FROM HISTORY");
         $result_property = pg_query($conn, "SELECT * FROM PROPERTY");
         $result_tenant = pg_query($conn, "SELECT * FROM TENANT");
 
@@ -289,7 +364,6 @@
 <th>Email</th>
 <th>Name</th>
 <th>Password</th>
-<th>History ID</th>
 <th>Verified</th>
 </tr>";
 
@@ -299,7 +373,6 @@
             echo "<td>" . $row['t_email'] . "</td>";
             echo "<td>" . $row['t_name'] . "</td>";
             echo "<td>" . $row['t_pass'] . "</td>";
-            echo "<td>" . $row['t_history'] . "</td>";
             echo "<td>" . $row['t_verified'] . "</td>";
             echo "</tr>";
         }

@@ -40,8 +40,6 @@ while ($row = pg_fetch_assoc($result)) {
     }
     if ($p_booked == 'no') {
         available($firstimage, $p_city, $p_area, $p_description, $p_type, $p_rating, $p_gender, $p_food, $p_parking, $p_wifi, $p_availability, $p_id, $p_owner, $name);
-    }else{
-        notAvailable($firstimage, $p_city, $p_area, $p_description, $p_type, $p_rating, $p_gender, $p_food, $p_parking, $p_wifi, $p_availability, $p_id, $p_owner, $name);
     }
 }
 ?>

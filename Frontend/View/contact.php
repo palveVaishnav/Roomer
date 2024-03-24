@@ -83,6 +83,8 @@
             <script>
                 function submitForm() {
                     document.getElementById("contactForm").reset();
+                    
+
                 }
             </script>
         </div>

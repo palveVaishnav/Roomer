@@ -22,7 +22,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location: index.php"); // Redirect to the dashboard page after successful login
         exit;
     } else {
-        echo '<p>Invalid Cridentials</p>';
+        echo '
+            <script>
+                alert("Oops !! Invalid Credentials!");
+            </script>
+        ';
     }
 }
 ?>
@@ -62,7 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <br><br><br>
                 <button class="button" type="submit">Submit</button>
                 <br> <br>
-                <a href="./signup.php">NEW USER</a>
+                <a href="./signup.php" style="color:#000;text-decoration:none;"><b>NEW USER ? </b></a>
             </form>
         </section>
     </section>

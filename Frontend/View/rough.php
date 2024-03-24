@@ -42,20 +42,29 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <h2>Contact Us</h2>
-        <form action="submit_contact.php" method="post">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" placeholder="Your name.." required>
+    <?php
+        session_start();
+        require_once('./pgConfig.php');
+        $userId = $_SESSION['userId'];
+        $query = "SELECT * FROM bookings WHERE t_id = $1;";
+        $result = pg_query_params($conn,$query,array($userId));
+        if(!$result){
+            echo "<h1>Bookings Not Found</h1>";
+            exit;
+        }
+        while($row = pg_fetch_assoc($result)){
+            $pid = $row['p_id'];
+            $Propertyquery = "SELECT * FROM property WHERE p_id = $pid;";
+            $Propertyresult = pg_query($conn,$Propertyquery);
+            while($rowi = pg_fetch_assoc($Propertyresult)){
+                
+            }
 
-            <label for="email">Email:</label>
-            <input type="text" id="email" name="email" placeholder="Your email.." required>
+        }
 
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" placeholder="Write something.." style="height:200px" required></textarea>
 
-            <input type="submit" value="Submit">
-        </form>
-    </div>
+
+
+    ?>
 </body>
 </html>
