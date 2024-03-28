@@ -58,7 +58,32 @@
                     <div class="userData">
                     
                         <div class="userImage">
-                            <img src="../Assets/icons/profile3.png" alt="" class="userImg">
+';
+
+    // Handle image upload
+    if(isset($_POST["submit"])) {
+            $target_dir = "../Assets/icons/";
+            // echo basename($_FILES["fileToUpload"]["name"])."<br>";
+            $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+            // echo $target_file."<br>";
+            $_SESSION['imgPath'] = $target_file;
+            echo '<script>window.location.href = "profile.php";</script>';
+    }
+
+    // Display uploaded image
+    if(isset($_SESSION['imgPath'])) {
+        echo '<img src="'.$_SESSION['imgPath'].'" alt="Uploaded Image" class="userImg">';
+    } else {
+        echo '<p>No image uploaded yet.</p>';
+    }
+    ?>
+    <form action="" method="post" enctype="multipart/form-data">
+        <input type="file" name="fileToUpload" id="fileToUpload">
+        <input type="submit" value="Upload Image" name="submit">
+    </form>
+<?php 
+echo '
+
                             <p class="userName">' . $name . '</p>
                         </div>
                         <hr>

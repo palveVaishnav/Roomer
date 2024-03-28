@@ -1,6 +1,4 @@
 
-DROP TABLE IF EXISTS TENANT;
-DROP TABLE IF EXISTS PROPERTY;
 DROP TABLE IF EXISTS LANDLORD;
 DROP TABLE IF EXISTS ADMIN;
 
@@ -34,12 +32,3 @@ INSERT INTO LANDLORD VALUES (6, 'Priya Kapoor', 'PASS-06', 'yes');
 INSERT INTO LANDLORD VALUES (7, 'Kumar Sharma', 'PASS-07', 'no');
 INSERT INTO LANDLORD VALUES (8, 'Sneha Gupta', 'PASS-08', 'no');
 INSERT INTO LANDLORD VALUES (9, 'Vikram Singh', 'PASS-09', 'yes');
-
-CREATE TABLE TENANT (
-    t_id SERIAL PRIMARY KEY,
-    t_email VARCHAR(50), -- I assumed email could be longer, adjust as needed
-    t_name VARCHAR(20),
-    t_pass VARCHAR(10),
-    t_verified VARCHAR(3)
-);
-
