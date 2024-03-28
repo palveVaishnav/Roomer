@@ -78,8 +78,8 @@
     }
     ?>
     <form action="" method="post" enctype="multipart/form-data">
-        <input type="file" name="fileToUpload" id="fileToUpload">
-        <input type="submit" value="Upload Image" name="submit">
+        <input type="file" value="Hello" name="fileToUpload" id="fileToUpload" style="padding:10px 20px;color:#fff;background-color:#333" accept=".jpg, .jpeg, .png, image/jpeg, image/png" >
+        <button type="submit" value="Change Profile Image" name="submit" style="padding:10px 20px;color:#fff;background-color:#333" >Change Image </button>
     </form>
 <?php 
 echo '
