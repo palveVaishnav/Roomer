@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Roomer-Home</title>
+    <title>Property-Page </title>
     <link rel="stylesheet" href="../Assets/css/reusable.css">
     <link rel="stylesheet" href="../Assets/css/style.css">
     <link rel="stylesheet" href="../Assets/css/propPage.css">

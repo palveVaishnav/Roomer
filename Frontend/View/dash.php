@@ -138,12 +138,6 @@
 
 
 
-
-
-
-
-
-
         <!-- <h2>Booking Requests</h2> -->
         <div class="request">
             <table class="requestTable">
@@ -350,17 +344,32 @@
         // messages Details
         echo "<table class='message'>
                 <tr>
+                    <th>reply id </th>
                     <th>SENDER</th>
                     <th>Email</th>
                     <th></th>
                     <th>Message</th>
+                    <th>Reply</th>
                 </tr>";
 
         while ($row = pg_fetch_assoc($result_msg)) {
             echo "<tr>";
+            echo "<td>" . $row['m_id'] . "</td>";
             echo "<td>" . $row['m_name'] . "</td>";
             echo "<td>" . $row['m_mail'] . "</td><td></td>";
             echo "<td>" . $row['m_msg'] . "</td>";
+            $mid = $row['m_id'];
+            if(!$row['m_reply']){
+                echo "
+                <td>
+                    <form action='reply.php?id=$mid'  method='post'>
+                        <input type='text' name='reply' id='reply' placeholder='Reply here' style='height:100px;width:200%;'>
+                    </form>
+                </td>
+                ";
+            }else{
+                echo "<td>" . $row['m_reply'] . "</td>";
+            }
             echo "</tr>";
         }
         echo "</table>";
