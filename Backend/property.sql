@@ -1,5 +1,13 @@
-DROP TABLE IF EXISTS PROPERTY CASCADE;
 DROP TABLE IF EXISTS bookings;
+DROP TABLE IF EXISTS PROPERTY CASCADE;
+
+
+CREATE TABLE bookings (
+    t_id INT,
+    p_id INT,
+    status VARCHAR(20)
+);
+
 CREATE TABLE property (
     p_id INT PRIMARY KEY,
     p_city VARCHAR(20),
@@ -50,13 +58,4 @@ INSERT INTO property VALUES
     2.Thinking: Property paper will be available which the landlord will upload and have full authority over who can access it.
     3.Property images will be stored in another folder and this table will contain the path.
 */
-
-
-CREATE TABLE bookings (
-    t_id INT,
-    p_id INT,
-    status VARCHAR(20)
-);
-
-
 

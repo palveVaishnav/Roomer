@@ -7,6 +7,7 @@
 <body style="background-color:#333;height:100vh;" >
     <?php 
         session_start();
+        // unset($_SESSION['admin_id']);
         session_destroy();
     ?>
     <div class="redirect">

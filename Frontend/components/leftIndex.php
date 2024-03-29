@@ -39,7 +39,7 @@
     <?php
 
     session_start();
-    if (isset ($_SESSION['userId'])) {
+    if (isset($_SESSION['userId'])) {
         echo '
                 <div class="login_container" id="loginContainer">
                     <button class="home_button">
@@ -63,12 +63,28 @@
                 ';
     }
 
+    if (isset($_SESSION['admin_id'])) {
+        echo '
+            <button class="home_button">
+                <a href="./logout.php">
+                    Admin Logout
+                </a>
+            </button>
+            
+        ';
+    }else{
+        echo '
+            <button class="home_button" style="position: absolute;">
+                <a href="./admin.php">
+                    Admin Login
+                </a>
+            </button>
+        
+        ';
+    }
+
     ?>
-    <button class="home_button" style="position: absolute;">
-        <a href="./admin.php">
-            Admin
-        </a>
-    </button>
+
 
 
 </div>

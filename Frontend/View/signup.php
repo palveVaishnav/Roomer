@@ -34,7 +34,7 @@
                 $password = $_POST["password"];
 
                 if ($userType == "tennent") {
-                    $insertQuery = "INSERT INTO TENANT (t_name, t_email, t_pass, t_verified) VALUES ($1, $2, $3, 'no')";
+                    $insertQuery = "INSERT INTO TENANT (t_name, t_email, t_pass, t_verified) VALUES ($1, $2, $3, 'yes')";
                 } elseif ($userType == "landlord") {
                     $insertQuery = "INSERT INTO LANDLORD (lord_name, lord_email, lord_pass, verified) VALUES ($1, $2, $3, 'no')";
                 }

@@ -50,14 +50,16 @@
         .admin,
         .landlord,
         .bookings,
+        .message,
         .tenant {
             display: none;
         }
 
         .displayTable {
-            display: flex;
-            justify-content: space-between;
-        }
+            display: grid;
+            grid-template-columns: repeat(4,auto);
+            gap: 20px;
+        }`
     </style>
 </head>
 
@@ -107,6 +109,7 @@
             <button onclick="toggleElement('tenant')">Tenant</button>
             <button onclick="toggleElement('landlord')">Landlord</button>
             <button onclick="toggleElement('admin')">Admin</button>
+            <button onclick="toggleElement('message')">Messages</button>
         </div>
         <br>
         <hr>
@@ -122,6 +125,17 @@
                 }
             }
         </script>
+
+        
+        <?php
+            $result_admin = pg_query($conn, "SELECT * FROM ADMIN");
+            $result_landlord = pg_query($conn, "SELECT * FROM LANDLORD");
+            $result_property = pg_query($conn, "SELECT * FROM PROPERTY");
+            $result_tenant = pg_query($conn, "SELECT * FROM TENANT");
+            $result_msg = pg_query($conn,"SELECT * FROM contact");
+
+        ?>
+
 
 
 
@@ -250,42 +264,19 @@
         </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-        <?php
-        $result_admin = pg_query($conn, "SELECT * FROM ADMIN");
-        $result_landlord = pg_query($conn, "SELECT * FROM LANDLORD");
-        $result_property = pg_query($conn, "SELECT * FROM PROPERTY");
-        $result_tenant = pg_query($conn, "SELECT * FROM TENANT");
-
-        ?>
-
-        <script>
-
-        </script>
-
         <?php
         // Admin Details
         // echo "<h2>Admin Details</h2>";
         echo "<table class='admin'>
-<tr>
-<th>Admin ID</th>
-<th>Admin Password</th>
-</tr>";
+                <tr>
+                    <th>Admin ID</th>
+                    <!--<th>Admin Password</th>-->
+                </tr>";
 
         while ($row = pg_fetch_assoc($result_admin)) {
             echo "<tr>";
             echo "<td>" . $row['admin_id'] . "</td>";
-            echo "<td>" . $row['admin_pass'] . "</td>";
+            // echo "<td>" . $row['admin_pass'] . "</td>";
             echo "</tr>";
         }
         echo "</table>";
@@ -293,11 +284,11 @@
         // Landlord Details
         // echo "<h2>Landlord Details</h2>";
         echo "<table class='landlord'>
-<tr>
-<th>Landlord ID</th>
-<th>Landlord Name</th>
-<th>Verified</th>
-</tr>";
+                <tr>
+                    <th>Landlord ID</th>
+                    <th>Landlord Name</th>
+                    <th>Verified</th>
+                </tr>";
 
         while ($row = pg_fetch_assoc($result_landlord)) {
             echo "<tr>";
@@ -313,25 +304,25 @@
         // Property Details
         // echo "<h2>Property Details</h2>";
         echo "<table class='property'>
-<tr>
-<th>Property ID</th>
-<th>Booked</th>
-<th>City</th>
-<th>Area</th>
-<!--<th>Description</th>-->
-<th>Type</th>
-<th>Rating</th>
-<th>Gender</th>
-<th>Food</th>
-<th>Parking</th>
-<th>WiFi</th>
-<th>AC</th>
-<th>Furnished</th>
-<th>Availability (Days)</th>
-<th>Owner ID</th>
-<th>Price</th>
-<!--<th>Details</th>-->
-</tr>";
+            <tr>
+                <th>Property ID</th>
+                <th>Booked</th>
+                <th>City</th>
+                <th>Area</th>
+                <!--<th>Description</th>-->
+                <th>Type</th>
+                <th>Rating</th>
+                <th>Gender</th>
+                <th>Food</th>
+                <th>Parking</th>
+                <th>WiFi</th>
+                <th>AC</th>
+                <th>Furnished</th>
+                <th>Availability (Days)</th>
+                <th>Owner ID</th>
+                <th>Price</th>
+                <!--<th>Details</th>-->
+            </tr>";
 
         while ($row = pg_fetch_assoc($result_property)) {
             echo "<tr>";
@@ -356,74 +347,25 @@
         }
         echo "</table>";
 
-        // Tenant Details
-        // echo "<h2>Tenant Details</h2>";
-        echo "<table class='tenant'>
-<tr>
-<th>Tenant ID</th>
-<th>Email</th>
-<th>Name</th>
-<th>Password</th>
-<th>Verified</th>
-</tr>";
+        // messages Details
+        echo "<table class='message'>
+                <tr>
+                    <th>SENDER</th>
+                    <th>Email</th>
+                    <th></th>
+                    <th>Message</th>
+                </tr>";
 
-        while ($row = pg_fetch_assoc($result_tenant)) {
+        while ($row = pg_fetch_assoc($result_msg)) {
             echo "<tr>";
-            echo "<td>" . $row['t_id'] . "</td>";
-            echo "<td>" . $row['t_email'] . "</td>";
-            echo "<td>" . $row['t_name'] . "</td>";
-            echo "<td>" . $row['t_pass'] . "</td>";
-            echo "<td>" . $row['t_verified'] . "</td>";
+            echo "<td>" . $row['m_name'] . "</td>";
+            echo "<td>" . $row['m_mail'] . "</td><td></td>";
+            echo "<td>" . $row['m_msg'] . "</td>";
             echo "</tr>";
         }
         echo "</table>";
 
-
-        // History Details
-        // echo "<h2>History Details</h2>";
-        /*
-        echo "<table class='history'>
-            <tr>
-                <th>History ID</th>
-                <th>Tenant ID</th>
-                <th>Property ID</th>
-                <th>Review</th>
-                <th>Duration (months)</th>
-                <th>Rating</th>
-            </tr>";
-
-        while ($row = pg_fetch_assoc($result_history)) {
-            echo "<tr>";
-            echo "<td>" . $row['h_id'] . "</td>";
-            echo "<td>" . $row['t_id'] . "</td>";
-            echo "<td>" . $row['p_id'] . "</td>";
-            echo "<td>" . $row['review'] . "</td>";
-            echo "<td>" . $row['duration'] . "</td>";
-            echo "<td>" . $row['rating'] . "</td>";
-            echo "</tr>";
-        }
-        echo "
-        </table>";
-        */
-
         ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     </div>
 </body>

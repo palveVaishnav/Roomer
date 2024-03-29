@@ -28,13 +28,20 @@
             border-radius: 10px;
         }
 
-        input[type="text"],
         textarea {
-            width: 100%;
+            width: 80%;
             padding: 10px;
             margin: 5px 0;
             border: 1px solid #ccc;
-            border-radius: 5px;
+            border-radius: 10px;
+            box-sizing: border-box;
+        }
+
+        input[type="text"],
+        input[type="email"] {
+            width: 40%;
+            padding: 15px;
+            border-radius: 10px;
             box-sizing: border-box;
         }
 
@@ -56,37 +63,54 @@
 
 <body>
     <?php
-    require_once ('../components/leftIndex.php');
+        require_once ('../components/leftIndex.php');
     ?>
 
     <div class="main_page">
         <div class="container">
-            <h2>Contact Us</h2>
+            <h2 class="confirmMessage" >Contact Us</h2>
             <form method="post" id="contactForm">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" placeholder="Your name.." required>
+                <!-- <label for="name">Name:</label> -->
+                <input type="text" id="name" name="name" placeholder="Enter Name" required>
 
-                <label for="email">Email:</label>
-                <input type="text" id="email" name="email" placeholder="Your email.." required>
-
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" placeholder="Write something.." style="height:200px"
+                <!-- <label for="email">Email:</label> -->
+                <input type="email" id="email" name="email" placeholder="Enter Email" required>
+                <br><br>
+                <!-- <label for="message">Message:</label><br> -->
+                <textarea id="message" name="message" placeholder="Write Message Here.." style="height:500px"
                     required></textarea>
-
-                <input type="submit" value="Submit">
+                <br>
+                <input type="submit" value="Submit" onclick="submitForm()">
             </form>
-            <?php
-            if ($_SERVER['REQUEST_METHOD'] == "POST") {
-                echo "<h1> Thank You for Contacting us !! Our team will connect with you soon </h1>";
-            }
-            ?>
-            <script>
-                function submitForm() {
-                    document.getElementById("contactForm").reset();
-                    
 
+            <?php 
+                require_once('./pgConfig.php');
+                if($_SERVER["REQUEST_METHOD"]=="POST"){
+                    $name = $_POST['name'];
+                    $mail = $_POST['email'];
+                    $msg = $_POST['message'];
+                    $query = "INSERT INTO contact(m_name,m_mail,m_msg) VALUES ($1,$2,$3)";
+                    $result = pg_query_params($conn,$query,array($name,$mail,$msg));
+                    if(!$result){
+                        echo pg_last_error($conn);
+                    }else{
+                        echo '<h1>Message Sent Succesfully ! <br>Thank You </h1>';
+                    }
                 }
-            </script>
+            ?>
+
+
+            <!-- <script>
+                function submitForm() {
+                    for(let i = 0 ;i < 10000 ; i++ ){
+                        for(let j =0 ;j < 20000;j++){
+                            // timepass
+                        }
+                    }
+                    window.alert("Thank you for contacting");
+                }
+            </script> -->
+
         </div>
     </div>
 
