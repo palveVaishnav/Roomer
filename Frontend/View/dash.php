@@ -57,15 +57,17 @@
 
         .displayTable {
             display: grid;
-            grid-template-columns: repeat(4,auto);
+            grid-template-columns: repeat(4, auto);
             gap: 20px;
-        }`
+        }
+
+        `
     </style>
 </head>
 
 <body>
     <?php
-    require_once ('../components/leftIndex.php');
+        require_once ('../components/leftIndex.php');
     function updateBookingStatus($conn, $t_id, $p_id, $status)
     {
         $query = "UPDATE bookings SET status = $1 WHERE t_id = $2 AND p_id = $3";
@@ -73,13 +75,13 @@
         $result = pg_query_params($conn, $query, $params);
         if ($result) {
             // Update the p_booked column for the given id
-            if($status == "booked"){
-	            $query = "UPDATE property SET p_booked='yes' WHERE p_id=$1";
-            }else{
-            	$query = "UPDATE property SET p_booked='no' WHERE p_id=$1";
+            if ($status == "booked") {
+                $query = "UPDATE property SET p_booked='yes' WHERE p_id=$1";
+            } else {
+                $query = "UPDATE property SET p_booked='no' WHERE p_id=$1";
             }
             $result = pg_query_params($conn, $query, array($p_id));
-            if($result){
+            if ($result) {
                 @header("Location: ./dash.php");
             }
         }
@@ -93,7 +95,7 @@
         require_once ('pgConfig.php');
         // Check if the user is logged in as an admin
         // session_start();
-        if (!isset ($_SESSION['admin_id'])) {
+        if (!isset($_SESSION['admin_id'])) {
             // Redirect to the login page or display an error message
             header("Location: admin.php");
             exit();
@@ -126,13 +128,13 @@
             }
         </script>
 
-        
+
         <?php
-            $result_admin = pg_query($conn, "SELECT * FROM ADMIN");
-            $result_landlord = pg_query($conn, "SELECT * FROM LANDLORD");
-            $result_property = pg_query($conn, "SELECT * FROM PROPERTY");
-            $result_tenant = pg_query($conn, "SELECT * FROM TENANT");
-            $result_msg = pg_query($conn,"SELECT * FROM contact");
+        $result_admin = pg_query($conn, "SELECT * FROM ADMIN");
+        $result_landlord = pg_query($conn, "SELECT * FROM LANDLORD");
+        $result_property = pg_query($conn, "SELECT * FROM PROPERTY");
+        $result_tenant = pg_query($conn, "SELECT * FROM TENANT");
+        $result_msg = pg_query($conn, "SELECT * FROM contact");
 
         ?>
 
@@ -156,19 +158,19 @@
                     if ($row['status'] == "pending") {
                         $tid = $row['t_id'];
                         $nameQuery = "SELECT t_name FROM tenant WHERE t_id= $tid";
-                        $tName = pg_query($conn,$nameQuery);
-                        if($tName){
+                        $tName = pg_query($conn, $nameQuery);
+                        if ($tName) {
                             $rowname = pg_fetch_assoc($tName);
-                            if($rowname){
+                            if ($rowname) {
                                 $theName = $rowname['t_name'];
                             }
                         }
                         $prizeid = $row['p_id'];
                         $nameQuery = "SELECT p_prize FROM property WHERE p_id= $prizeid";
-                        $prize = pg_query($conn,$nameQuery);
-                        if($prize){
+                        $prize = pg_query($conn, $nameQuery);
+                        if ($prize) {
                             $rowname = pg_fetch_assoc($prize);
-                            if($rowname){
+                            if ($rowname) {
                                 $thePrize = $rowname['p_prize'];
                             }
                         }
@@ -225,22 +227,22 @@
                 // Execute SQL queries to retrieve data
                 $result_bookings = pg_query($conn, "SELECT * FROM bookings ");
                 while ($row = pg_fetch_assoc($result_bookings)) {
-                    if ($row['status'] == "booked" || $row['status'] == "denied" ) {
+                    if ($row['status'] == "booked" || $row['status'] == "denied") {
                         $tid = $row['t_id'];
                         $nameQuery = "SELECT t_name FROM tenant WHERE t_id= $tid";
-                        $tName = pg_query($conn,$nameQuery);
-                        if($tName){
+                        $tName = pg_query($conn, $nameQuery);
+                        if ($tName) {
                             $rowname = pg_fetch_assoc($tName);
-                            if($rowname){
+                            if ($rowname) {
                                 $theName = $rowname['t_name'];
                             }
                         }
                         $prizeid = $row['p_id'];
                         $nameQuery = "SELECT p_prize FROM property WHERE p_id= $prizeid";
-                        $prize = pg_query($conn,$nameQuery);
-                        if($prize){
+                        $prize = pg_query($conn, $nameQuery);
+                        if ($prize) {
                             $rowname = pg_fetch_assoc($prize);
-                            if($rowname){
+                            if ($rowname) {
                                 $thePrize = $rowname['p_prize'];
                             }
                         }
@@ -249,7 +251,7 @@
                         echo "<td>" . $theName . "</td>";
                         echo "<td>" . $row['p_id'] . "</td>";
                         echo "<td>" . $thePrize . "</td>";
-                        echo "<td>"  . $row['status'] ."</td>";
+                        echo "<td>" . $row['status'] . "</td>";
                         echo "</tr>";
                     }
                 }
@@ -288,7 +290,14 @@
             echo "<tr>";
             echo "<td>" . $row['lord_id'] . "</td>";
             echo "<td>" . $row['lord_name'] . "</td>";
-            echo "<td>" . $row['verified'] . "</td>";
+            if ($row['verified'] == 'no') {
+                echo '
+                    <td><button style="padding:5px 10px;">Verify</button></td>
+                ';
+            } else {
+                echo "<td>" . $row['verified'] . "</td>";
+            }
+            // echo "<td>" . $row['verified'] . "</td>";
             echo "</tr>";
         }
         echo "</table>";
@@ -359,7 +368,7 @@
             echo "<td>" . $row['m_mail'] . "</td><td></td>";
             echo "<td>" . $row['m_msg'] . "</td>";
             $mid = $row['m_id'];
-            if(!$row['m_reply']){
+            if (!$row['m_reply']) {
                 echo "
                 <td>
                     <form action='reply.php?id=$mid'  method='post'>
@@ -367,8 +376,37 @@
                     </form>
                 </td>
                 ";
-            }else{
+            } else {
                 echo "<td>" . $row['m_reply'] . "</td>";
+            }
+            echo "</tr>";
+        }
+        echo "</table>";
+
+
+        // Tenant table 
+        echo "<table class='tenant'>
+                <tr>
+                    <th>Tenant Id </th>
+                    <th>Tenant</th>
+                    <th>Email</th>
+                    <!--<th>Password</th>-->
+                    <th>Verified </th>
+                </tr>";
+
+        while ($row = pg_fetch_assoc($result_tenant)) {
+            echo "<tr>";
+            $passhash = password_hash($row['t_pass'], 1);
+            echo "<td>" . $row['t_id'] . "</td>";
+            echo "<td>" . $row['t_name'] . "</td>";
+            echo "<td>" . $row['t_email'] . "</td>";
+            // echo "<td>" . $passhash . "</td>";
+            if ($row['t_verified'] == 'no') {
+                echo '
+                    <td><button style="padding:5px 10px;">Verify</button></td>
+                ';
+            } else {
+                echo "<td>" . $row['t_verified'] . "</td>";
             }
             echo "</tr>";
         }

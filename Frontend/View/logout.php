@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta http-equiv="refresh" content="1;url=http://localhost/Roomer/Frontend/View/index.php">
+    <meta http-equiv="refresh" content="0.1;url=http://localhost/Roomer/Frontend/View/index.php">
     <title>Logout</title>
 </head>
 <body style="background-color:#333;height:100vh;" >

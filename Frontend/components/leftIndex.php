@@ -43,6 +43,11 @@
         echo '
                 <div class="login_container" id="loginContainer">
                     <button class="home_button">
+                        <a href="./profile.php"> 
+                            Profile
+                        </a>
+                    </button>
+                    <button class="home_button">
                         <a href="./logout.php"> 
                             Logout
                         </a>
@@ -65,6 +70,12 @@
 
     if (isset($_SESSION['admin_id'])) {
         echo '
+            <button class="home_button">
+                <a href="./dash.php">
+                    DashBoard
+                </a>
+            </button>
+            <br><br>
             <button class="home_button">
                 <a href="./logout.php">
                     Admin Logout

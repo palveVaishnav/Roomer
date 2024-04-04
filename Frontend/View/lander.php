@@ -120,7 +120,7 @@
         <div class="slideshow-container">
 
             <?php
-            require_once('propRender.php');
+                require_once('propRender.php');
             ?>
             <?php
             foreach ($p_image_array as $image) {

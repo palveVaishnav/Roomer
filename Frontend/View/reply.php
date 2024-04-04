@@ -13,8 +13,6 @@
             echo "Updated replied";
             header("Location: dash.php");
         }
-
-
         echo $mid;
     }
 

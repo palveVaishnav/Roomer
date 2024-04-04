@@ -64,6 +64,11 @@
 <body>
     <?php
         require_once ('../components/leftIndex.php');
+        if(!isset($_SESSION['userId'])){
+            header("Location: login.php");
+            exit;
+        }
+
     ?>
 
     <div class="main_page">
@@ -98,18 +103,12 @@
                     }
                 }
             ?>
+            <script>
+                window.onload = function () {
+                document.getElementById("name").focus();
+            };
+            </script>
 
-
-            <!-- <script>
-                function submitForm() {
-                    for(let i = 0 ;i < 10000 ; i++ ){
-                        for(let j =0 ;j < 20000;j++){
-                            // timepass
-                        }
-                    }
-                    window.alert("Thank you for contacting");
-                }
-            </script> -->
 
         </div>
     </div>
